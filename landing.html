@@ -156,7 +156,7 @@
         }
 
         // Call the updateCountdown function every second
-        setInterval(updateCountdown, 300);
+        setInterval(updateCountdown, 1000);
         
         // Initial call to start the countdown immediately
         updateCountdown();
@@ -172,7 +172,7 @@
             console.log("Splash screen loaded.");
 
             // Simulate a loading process.
-            const splashDuration = 3000; // 3 seconds
+            const splashDuration = 1000; // 3 seconds
 
             setTimeout(() => {
                 console.log("Loading complete. Fading out splash screen.");
@@ -196,12 +196,10 @@
                     //         <h1>Welcome to Lyrical Grace!</h1>
                     //     </div>
                     // `;
-                }, 300); // Wait for the fade-out transition (1s) to finish
+                }, 1000); // Wait for the fade-out transition (1s) to finish
                 
             }, splashDuration);
         });
     </script>
 </body>
 </html>
-
-
