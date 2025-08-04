@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,12 +117,12 @@
 </head>
 <body>
 
-    <div class="splash-container">
+    <div class="splash-container"> <center><span id="countdown">3</span></p> </center>
         <div class="logo-container">
-            <div class="logo-icon">💠</div> 
+            <div class="logo-icon"><img src="1596838947448.png" width="100%"></div> 
         </div>
-        <h1 class="app-title">Lyrical Grace</h1>
-        <p class="app-subtitle">Modern Church Song Lyrics System</p>
+        <h1 class="app-title">EOTC </h1>
+        <p class="app-subtitle">የመዝሙር ግጥሞች መገኛ</p>
         <div class="loading-spinner">
             <div class="spinner-dot"></div>
             <div class="spinner-dot"></div>
@@ -129,14 +130,9 @@
         </div>
     </div>
 
-
-
-    
-    
-    
     <script>
         // Set the duration for the countdown in seconds
-        let countdownDuration = 10;
+        let countdownDuration = 3;
         
         // The URL to redirect to after the countdown
         const redirectUrl = "search.html"; 
@@ -167,39 +163,5 @@
     
 
     
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            console.log("Splash screen loaded.");
-
-            // Simulate a loading process.
-            const splashDuration = 1000; // 3 seconds
-
-            setTimeout(() => {
-                console.log("Loading complete. Fading out splash screen.");
-                
-                const splashContainer = document.querySelector('.splash-container');
-                
-                // Add a fade-out class to start the transition
-                splashContainer.style.opacity = '0';
-                splashContainer.style.transition = 'opacity 1s ease-out';
-                
-                // After the fade-out is complete, hide the splash screen entirely
-                setTimeout(() => {
-                    splashContainer.style.display = 'none';
-                    // You can now display your main application content here.
-                    // For a real application, you would replace this with code to
-                    // load the next part of your UI or redirect the user.
-                    
-                    // Example:
-                    // document.body.innerHTML = `
-                    //     <div style="text-align: center; padding-top: 50vh; color: white;">
-                    //         <h1>Welcome to Lyrical Grace!</h1>
-                    //     </div>
-                    // `;
-                }, 1000); // Wait for the fade-out transition (1s) to finish
-                
-            }, splashDuration);
-        });
-    </script>
 </body>
 </html>
