@@ -129,6 +129,44 @@
         </div>
     </div>
 
+
+
+    
+    <span id="countdown">10</span>
+    
+    <script>
+        // Set the duration for the countdown in seconds
+        let countdownDuration = 10;
+        
+        // The URL to redirect to after the countdown
+        const redirectUrl = "search.html"; 
+        
+        // Get the countdown element from the HTML
+        const countdownElement = document.getElementById("countdown");
+
+        // Function to update the countdown display
+        function updateCountdown() {
+            countdownElement.textContent = countdownDuration;
+            countdownDuration--;
+
+            // If the countdown is over, redirect
+            if (countdownDuration < 0) {
+                window.location.href = redirectUrl;
+            }
+        }
+
+        // Call the updateCountdown function every second
+        setInterval(updateCountdown, 1000);
+        
+        // Initial call to start the countdown immediately
+        updateCountdown();
+    </script>
+
+</body>
+</html>
+    
+
+    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             console.log("Splash screen loaded.");
