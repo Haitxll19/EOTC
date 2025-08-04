@@ -1,10 +1,186 @@
- <DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lyrical Grace | Song List</title>
-    <style>
+<!DOCTYPE html>
+<html><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+ <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css">
+ <meta name="viewport" content="width=device-width, initial-scale=1"> 
+<link rel="stylesheet"  href="style.css"> 
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"> 
+ <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css"> 
+<link rel="stylesheet"  href="style.css"> 
+
+ <script src="bootstrap/js/jquery.js"></script>
+ <script src="bootstrap/js/bootstrap.js"></script>
+<style> 
+  p{
+color:black;
+opacity:50%;
+}
+  
+   .bs-example { 
+   margin: 5px 5px;
+text-align:center;
+  } 
+  .popover-demo { 
+   margin-bottom: 20px; 
+  }  
+  body { 
+   position: relative; 
+   padding-top: 70px; 
+     } 
+  header{
+  background-color: black;
+ color:white;
+ }
+  @-webkit-keyframes example { 
+   from { 
+    top: -100px; 
+    opacity: 0; 
+   } 
+   to { 
+    top: 0px; 
+    opacity: 0; 
+   } 
+  } 
+  @keyframes example { 
+   from { 
+    top: -100px; 
+    opacity: 0; 
+   } 
+   to { 
+    top: 0px; 
+    opacity: 1; 
+   } 
+  } 
+  .modal { 
+   display: none; 
+   position: fixed; 
+   left: 0; 
+   top: 0; 
+   width: 100%; 
+   height: 100%; 
+   overflow: auto; 
+   background-color: rgb(0, 0, 0); 
+   background-color: rgba(0, 0, 0, 0.4); 
+  } 
+  .modal:target { 
+   display: table; 
+   position: absolute; 
+  } 
+  .modal-dialog { 
+   display: table-cell; 
+   vertical-align: midd; 
+  }
+  .modal-dialog .modal-content { 
+   margin: auto; 
+   background-color: lightblue; 
+   position: relative; 
+   padding: 0; 
+   outline: 0; 
+   border: 1px #777 solid; 
+   text-align: justify; 
+   width: 80%; 
+   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19); 
+   /* Add animation */ 
+   -webkit-animation-name: hait; 
+   /* Chrome, Safari, Opera */ 
+   -webkit-animation-duration: 0.5s; 
+   /* Chrome, Safari, Opera , browser , all*/ 
+   animation-name: hait; 
+   animation-duration: 0.5s; 
+  } 
+  .closebtn { 
+   text-decoration: none; 
+   float: right; 
+   font-size: 45px; 
+   color: #fff; 
+  } 
+  .closebtn:hover, 
+  .closebtn:focus { 
+   color: #000; 
+   text-decoration: none; 
+   cursor: pointer; 
+  } 
+  .container { 
+   padding: 0px 0px;
+font-size: 15px;
+p{
+color:black;
+text-align:center;
+}
+
+}
+    button{
+background-color: black;
+color:white;
+width:250px;
+font-size:16px;
+text-position:center;
+border: 1px black solid;
+border-radius:20px;
+box-shadow: 10 10 5 30px rgba(8, 7, 6, 5);
+opacity:60%;
+font-oppacity:100%;
+margin:2px;
+}
+      #anbody { -webkit-background-size: cover;
+   background-image: url("FB_IMG_15741585595917118_1604726324734_1604726599973.jpg");
+   }
+  @-webkit-keyframes animation_name {
+   from {
+    background-size: 450px 300px;
+   }
+  }
+nav{
+position:fixed;
+}
+  #searchbar{ background-color: black;
+color:white;
+width:40%;
+font-size:15px;
+text-position:center;
+border: 3px white solid;
+border-radius:20px;
+box-shadow: 10 10 5 30px rgba(8, 7, 6, 5);
+     margin-top: 90px; 
+     padding:15px; 
+     border-radius: 10px black; 
+ border:20px;
+   } 
+   input[type=text] { 
+      width: 30%; 
+      -webkit-transition: width 0.15s ease-in-out; 
+      transition: width 0.15s ease-in-out; 
+   }  
+   input[type=text]:focus { 
+     width: 50%; 
+     border-radius: 15px red;
+     border: 2px;
+   } 
+  #list{ 
+    font-size:  1.5em; 
+    margin-left: 90px; 
+   } 
+.animals{ 
+  display: list-item;     
+  } 
+header{
+position:fixed;
+color:white;
+
+background-color:black;
+}placeholder{
+color:white;
+background-color:black;
+}
+link{
+color:white
+}
+search{
+	border: 2px;
+	border-radius: 2px red solid;
+}
+	
         /* Modern Theme based on previous splash screen */
         :root {
             --primary-color: #f0f0f0;
@@ -139,15 +315,20 @@
                 align-items: center;
             }
         }
-    </style>
-</head>
-<body>
-    <header>
-        
-        <input id="searchbar" onkeyup="filterSongs()" type="text" placeholder="መዝሙር ፈልግ....">
-    </header>
-       
+</style>
+<body>  
+   <center> <input  id="searchbar" onkeyup="search_animal()" type="text" 
+        name="search" placeholder="መዝሙር ፈልግ...."> 
+         </center></div>
+   <!-- Collection of nav links and other content for toggling -->
 
+   
+        
+     
+ 
+ <script src="bootstrap/js/jquery.js"></script>
+ <script src="bootstrap/js/bootstrap.js"></script>
+<body id="anbody"> </div>
 <ol id='list'> <br>
   <li class="animals"><a href="mz1/ha1.html"><button>አልፋና ኦሜጋ</button></a></li>
     <li class="animals"><a href="mz1/ha2.html"><button>ድንግል አትለይኝ </button></a></li> 
@@ -714,30 +895,8 @@
 
     
     </ol> 
-     
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            console.log("Application loaded.");
-
-            // The filter function is now defined here.
-            window.filterSongs = function() { 
-                const input = document.getElementById('searchbar').value.toLowerCase();
-                const list = document.getElementById('songList');
-                const songItems = list.getElementsByClassName('song-item'); 
-
-                for (let i = 0; i < songItems.length; i++) {
-                    const buttonText = songItems[i].querySelector('.song-button').innerText.toLowerCase();
-                    if (buttonText.includes(input)) {
-                        songItems[i].style.display = "block";
-                    } else {
-                        songItems[i].style.display = "none";
-                    }
-                }
-            };
-        });
-    </script>
- 
     <script src="./animals.js"></script> 
+</body> 
 <script>
     function search_animal() { 
     let input = document.getElementById('searchbar').value 
@@ -760,6 +919,10 @@
  	border-radius: 15px;
  
  }</style>
-</body>
-</html>
+ 
+ 
+ 
+ 
+</html> 
+
 
