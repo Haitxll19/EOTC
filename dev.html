@@ -1,1 +1,314 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Your Name] - Professional Portfolio</title>
+    <style>
+        /* CSS Variables for Easy Theming */
+        :root {
+            --primary-color: #f0f0f0;
+            --secondary-color: #c0c0c0;
+            --background-color: #1a1a1a;
+            --accent-color: #6a1b9a;
+            --font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            --border-radius: 10px;
+            --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--background-color);
+            color: var(--primary-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /* Container for content */
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        
+        /* Section Styling */
+        .section {
+            padding: 60px 0;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            color: var(--accent-color);
+        }
+        
+        /* Underline effect for titles */
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        /* Header / Hero Section */
+        .hero-section {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-name {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .hero-role {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            min-height: 2.5rem; /* Prevents layout shift for typewriter effect */
+        }
+        
+        /* Typewriter effect cursor */
+        .hero-role::after {
+            content: '|';
+            animation: blink-caret 1s step-end infinite;
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--primary-color); }
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            text-align: justify;
+        }
+        
+        .about-content img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--accent-color);
+            object-fit: cover;
+            box-shadow: var(--box-shadow);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .skill-item {
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-5px);
+            background-color: var(--accent-color);
+        }
+
+        .skill-item h4 {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+        }
+        
+        .contact-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            color: var(--secondary-color);
+            border-top: 1px solid #333;
+            margin-top: 40px;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-name {
+                font-size: 3rem;
+            }
+            .hero-role {
+                font-size: 1.2rem;
+            }
+            .about-content {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero-section">
+        <h1 class="hero-name">Wait apps</h1>
+        <p class="hero-role"></p>
+    </div>
+
+    <div class="container section">
+        <h2 class="section-title">Haile Teshager</h2>
+        <div class="about-content">
+            <img src="[Link to your Profile Photo]" alt="Haile">
+            <p>
+                I am a passionate IT teacher with a keen interest in web development. I have a strong foundation in programming and digital skill. My goal is to use my skills to create impactful and meaningful projects.
+            </p>
+        </div>
+    </div>
+    
+    <div class="container section">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <h4>web programming</h4>
+                
+            </div>
+            <div class="skill-item">
+                <h4>android studio</h4>
+                
+            </div>
+            <div class="skill-item">
+                <h4>Skill 3</h4>
+                <p>Description of your skill.</p>
+            </div>
+            <div class="skill-item">
+                <h4>Skill 4</h4>
+                <p>Description of your skill.</p>
+            </div>
+            <div class="skill-item">
+                <h4>Skill 5</h4>
+                <p>Description of your skill.</p>
+            </div>
+            <div class="skill-item">
+                <h4>Skill 6</h4>
+                <p>Description of your skill.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container section">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <strong>Email:</strong> <a href="mailto:haitxoxo19@gmail.com">haitxoxo19@gmail</a>
+            </div>
+            <div class="contact-item">
+                <strong>Phone:</strong> <a href="tel:+251900991275">0900991275</a>
+            </div>
+            <div class="contact-item">
+                <strong>Telegram:</strong> <a href="https://t.me/@haitxll" target="_blank">@haitxll</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 hait_xll. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const roles = ["[Haile Teshager]", "[web developer]", "[Do better!]"];
+            let roleIndex = 0;
+            let charIndex = 0;
+            const heroRoleElement = document.querySelector('.hero-role');
+            const typingSpeed = 100;
+            const erasingSpeed = 50;
+            const newRoleDelay = 2000;
+
+            function type() {
+                if (roleIndex < roles.length) {
+                    if (charIndex < roles[roleIndex].length) {
+                        heroRoleElement.textContent += roles[roleIndex].charAt(charIndex);
+                        charIndex++;
+                        setTimeout(type, typingSpeed);
+                    } else {
+                        setTimeout(erase, newRoleDelay);
+                    }
+                }
+            }
+
+            function erase() {
+                if (charIndex > 0) {
+                    heroRoleElement.textContent = roles[roleIndex].substring(0, charIndex - 1);
+                    charIndex--;
+                    setTimeout(erase, erasingSpeed);
+                } else {
+                    roleIndex++;
+                    if (roleIndex >= roles.length) {
+                        roleIndex = 0;
+                    }
+                    setTimeout(type, typingSpeed);
+                }
+            }
+            
+            // Start the typewriter effect
+            type();
+        });
+    </script>
+</body>
+</html>
