@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+ <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css">
+ <meta name="viewport" content="width=device-width, initial-scale=1"> 
+<link rel="stylesheet"  href="style.css"> 
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"> 
+ <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css"> 
+<link rel="stylesheet"  href="style.css"> 
+
+ <script src="bootstrap/js/jquery.js"></script>
+ <script src="bootstrap/js/bootstrap.js"></script>
+<style> 
+  p{
+color:black;
+opacity:50%;
+}
+  
+   .bs-example { 
+   margin: 5px 5px;
+text-align:center;
+  } 
+  .popover-demo { 
+   margin-bottom: 20px; 
+  }  
+  body { 
+   position: relative; 
+   padding-top: 70px; 
+     } 
+  header{
+  background-color: black;
+ color:white;
+ }
+  @-webkit-keyframes example { 
+   from { 
+    top: -100px; 
+    opacity: 0; 
+   } 
+   to { 
+    top: 0px; 
+    opacity: 0; 
+   } 
+  } 
+  @keyframes example { 
+   from { 
+    top: -100px; 
+    opacity: 0; 
+   } 
+   to { 
+    top: 0px; 
+    opacity: 1; 
+   } 
+  } 
+  .modal { 
+   display: none; 
+   position: fixed; 
+   left: 0; 
+   top: 0; 
+   width: 100%; 
+   height: 100%; 
+   overflow: auto; 
+   background-color: rgb(0, 0, 0); 
+   background-color: rgba(0, 0, 0, 0.4); 
+  } 
+  .modal:target { 
+   display: table; 
+   position: absolute; 
+  } 
+  .modal-dialog { 
+   display: table-cell; 
+   vertical-align: midd; 
+  }
+  .modal-dialog .modal-content { 
+   margin: auto; 
+   background-color: lightblue; 
+   position: relative; 
+   padding: 0; 
+   outline: 0; 
+   border: 1px #777 solid; 
+   text-align: justify; 
+   width: 80%; 
+   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19); 
+   /* Add animation */ 
+   -webkit-animation-name: hait; 
+   /* Chrome, Safari, Opera */ 
+   -webkit-animation-duration: 0.5s; 
+   /* Chrome, Safari, Opera , browser , all*/ 
+   animation-name: hait; 
+   animation-duration: 0.5s; 
+  } 
+  .closebtn { 
+   text-decoration: none; 
+   float: right; 
+   font-size: 45px; 
+   color: #fff; 
+  } 
+  .closebtn:hover, 
+  .closebtn:focus { 
+   color: #000; 
+   text-decoration: none; 
+   cursor: pointer; 
+  } 
+  .container { 
+   padding: 0px 0px;
+font-size: 15px;
+p{
+color:black;
+text-align:center;
+}
+
+}
+    button{
+background-color: black;
+color:white;
+width:250px;
+font-size:16px;
+text-position:center;
+border: 1px black solid;
+border-radius:20px;
+box-shadow: 10 10 5 30px rgba(8, 7, 6, 5);
+opacity:60%;
+font-oppacity:100%;
+margin:2px;
+}
+      #anbody { -webkit-background-size: cover;
+   background-image: url("FB_IMG_15741585595917118_1604726324734_1604726599973.jpg");
+   }
+  @-webkit-keyframes animation_name {
+   from {
+    background-size: 450px 300px;
+   }
+  }
+nav{
+position:fixed;
+}
+  #searchbar{ background-color: black;
+color:white;
+width:40%;
+font-size:15px;
+text-position:center;
+border: 3px white solid;
+border-radius:20px;
+box-shadow: 10 10 5 30px rgba(8, 7, 6, 5);
+     margin-top: 90px; 
+     padding:15px; 
+     border-radius: 10px black; 
+ border:20px;
+   } 
+   input[type=text] { 
+      width: 30%; 
+      -webkit-transition: width 0.15s ease-in-out; 
+      transition: width 0.15s ease-in-out; 
+   }  
+   input[type=text]:focus { 
+     width: 50%; 
+     border-radius: 15px red;
+     border: 2px;
+   } 
+  #list{ 
+    font-size:  1.5em; 
+    margin-left: 90px; 
+   } 
+.animals{ 
+  display: list-item;     
+  } 
+header{
+position:fixed;
+color:white;
+
+background-color:black;
+}placeholder{
+color:white;
+background-color:black;
+}
+link{
+color:white
+}
+search{
+	border: 2px;
+	border-radius: 2px red solid;
+}
+</style>
+<body>  <nav id="myNavbar" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+  <div class="navbar-header">
+   <button1 type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+               <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button1>
+   <center> <input  id="searchbar" onkeyup="search_animal()" type="text" 
+        name="search" placeholder="መዝሙር ፈልግ...."> 
+ 
+         </center></div>
+   <!-- Collection of nav links and other content for toggling -->
+   <div id="navbarCollapse" class="collapse navbar-collapse">
+    <ol class="nav navbar-nav">
+     <li class="active"><a href="1.html">Home</a></li><br>
+     <li><a href="index.html">Developer info</a></li><br>
+     <li><a href="haile.html">tips</a></li><br>
+    </ol>
+    
+   </div>
+  </div>
+ </nav>
+        
+     
+ 
+ <script src="bootstrap/js/jquery.js"></script>
+ <script src="bootstrap/js/bootstrap.js"></script>
+<body id="anbody"> </div>
+<ol id='list'> <br>
+  <li class="animals"><a href="mz1/ha1.html"><button>አልፋና ኦሜጋ</button></a></li>
+    <li class="animals"><a href="mz1/ha2.html"><button>ድንግል አትለይኝ </button></a></li> 
+    <li class="animals"><a href="mz1/ha3.html"><button>​አምኛለሁ አንተን</button></a></li> 
+    <li class="animals"><a href="mz1/ha4.html"><button>እንደፈቃድህ</button></a></li> 
+    <li class="animals"><a href="mz1/ha5.html"><button>ሱላማጢስ</button></a></li>
+    <li class="animals"><a href="mz1/ha6.html"><button>መርከቢቷ</button></a></li> 
+    <li class="animals"><a href="mz1/ha7.html"><button>ሁሌ ዝማሬ</button></a></li> 
+      <li class="animals"><a href="mz1/ha8.html"><button>እንደበደሌ አልከፈልከኝ </button></a></li>
+    <li class="animals"><a href="mz1/ha9.html"><button>በዓይኖቼ ፈልግሻለሁ </button></a></li> 
+    <li class="animals"><a href="mz1/ha10.html"><button>​አንቺ ነሽ ተስፋ</button></a></li> 
+    <li class="animals"><a href="mz1/ha11.html"><button>አንተ ባትምረኝ </button></a></li> 
+    <li class="animals"><a href="mz1/ha12.html"><button>መሰረትሕ ሕይወቴ</button></a></li>  <li class="animals"><a href="mz1/ha13.html"><button>እጆቹን ዘረጋ </button></a></li>
+    <li class="animals"><a href="mz1/ha14.html"><button>ተፈሲሒ ኦ ድንግል  </button></a></li> 
+    <li class="animals"><a href="mz/1.html"><button>በዙሪያችን ካሉ ድንቅ ምስክሮች</button></a></li>
+    <li class="animals"><a href="mz/2.html"><button>የመስቀሉ ፍቅር ሲገባን</button></a></li> 
+    <li class="animals"><a href="mz/3.html"><button>​ምስጋናው ይቀጥል</button></a></li> 
+    <li class="animals"><a href="mz/4.html"><button>ባለ ውለታዬ</button></a></li> 
+    <li class="animals"><a href="mz/5.html"><button>ማርያም ማርያም ብዬ</button></a></li>
+    <li class="animals"><a href="mz/6.html"><button>አትንኩን</button></a></li> 
+    <li class="animals"><a href="mz/7.html"><button>​​ተግተን እንጸልይ</button></a></li> 
+    <li class="animals"><a href="mz/9.html"><button>ዑራኤል አባት</button></a></li> 
+    <li class="animals"><a href="mz/10.html"><button>አረሳት ኢትዮጵያን</button></a></li> 
+    <li class="animals"><a href="mz/11.html"><button>ይለመነናል</button></a></li>
+    <li class="animals"><a href="mz/12.html"><button>ደመቀ አበራልን </button></a></li> 
+    <li class="animals"><a href="mz/13.html"><button>የምሥራች ደስ ይበላችሁ</button></a></li> 
+    <li class="animals"><a href="mz/14.html"><button>ዮም ፍስሐ ኮነ</button></a></li> 
+    <li class="animals"><a href="mz/15.html"><button>ሙሽራዬ አበባዬ</button></a></li> 
+    <li class="animals"><a href="mz/16.html"><button>መራሔ ብርሐን</button></a></li> 
+    <li class="animals"><a href="mz/17.html"><button>ከእኔ የበረታቹ</button></a></li> 
+    <li class="animals"><a href="mz/18.html"><button>ቅዱስ ገብርኤል እርዳን</button></a></li> 
+<li class="animals"><a href="mz/19.html"><button>እናት አለኝ</button></a></li> 
+<li class="animals"><a href="mz/20.html"><button>ኪዳነ ምህረት እመቤት</button></a></li> 
+<li class="animals"><a href="mz/21.html"><button>ኦ ሚካኤል</button></a></li> 
+<li class="animals"><a href="mz/22.html"><button>ኦ ቅዱስ ሚካኤል</button></a></li> 
+<li class="animals"><a href="mz/23.html"><button>ብዙ ልጆች አሉት </button></a></li> 
+<li class="animals"><a href="mz/24.html"><button>ቅዱስ ሚካኤል</button></a></li> 
+<li class="animals"><a href="mz/25.html"><button>ዮም ፍስሐ ኮነ</button></a></li> 
+<li class="animals"><a href="mz/26.html"><button>ገድሉ ተአምራቱ</button></a></li> 
+<li class="animals"><a href="mz/27.html"><button>አማኑኤል ፍቅርህ ይማርካል</button></a></li> 
+<li class="animals"><a href="mz/28.html"><button>ንሴብሖ</button></a></li> 
+<li class="animals"><a href="mz/29.html"><button>እውነት ስለሆነ</button></a></li> 
+<li class="animals"><a href="mz/30.html"><button>ጌታ ሆይ</button></a></li> 
+<li class="animals"><a href="mz/31.html"><button>ሰላም ያለው</button></a></li> 
+<li class="animals"><a href="mz/32.html"><button>አማን በአማን  </button></a></li> 
+<li class="animals"><a href="mz/33.html"><button>ማርያም እንወድሻለን</button></a></li> 
+<li class="animals"><a href="mz/34.html"><button>ገብርኤል መልአክ ተጨንቃለች ነፍሴ</button></a></li> 
+<li class="animals"><a href="mz/35.html"><button>አድኚኝ እናቴ ከሥጋ ፈተና</button></a></li> 
+<li class="animals"><a href="mz/36.html"><button>ናና ሚካኤል</button></a></li> 
+<li class="animals"><a href="mz/37.html"><button>ገድሉ ተአምራቱ </button></a></li> 
+<li class="animals"><a href="mz/38.html"><button>ገብረሕይወት</button></a></li> 
+<li class="animals"><a href="mz/39.html"><button>ገብርኤል ገብርኤል ስለው ሰምቶ</button></a></li> 
+<li class="animals"><a href="mz/40.html"><button>ስምሽን ቢጠሩ የማትጠገቢ</button></a></li> 
+<li class="animals"><a href="mz/41.html"><button>ተመስገን ጌታዬ</button></a></li> 
+<li class="animals"><a href="mz/42.html"><button>በእምነታቸው ዳኑ</button></a></li> 
+<li class="animals"><a href="mz/44.html"><button>እግዚአብሔር መልካም ነው</button></a></li> 
+<li class="animals"><a href="mz/45.html"><button>ኃያል ነህ አንተ ኃያል</button></a></li> 
+<li class="animals"><a href="mz/46.html"><button>እልል በሉ በአንድነት ዘምሩ</button></a></li> 
+<li class="animals"><a href="mz/47.html"><button>ኦ ፍጡነ ረድኤት</button></a></li> 
+<li class="animals"><a href="mz/48.html"><button>የራማው ልዑል ገብርኤል </button></a></li> 
+<li class="animals"><a href="mz/51.html"><button>﻿የቀደሙት አባቶች</button></a></li> 
+<li class="animals"><a href="mz/52.html"><button>﻿እመቤቴ ልበል</button></a></li> 
+<li class="animals"><a href="mz/53.html"><button>﻿ስብሐት ለአብ</button></a></li> 
+<li class="animals"><a href="mz/54.html"><button>﻿ፍቅርሽ በልቤ</button></a></li> 
+<li class="animals"><a href="mz/55.html"><button>﻿አንቺን የያዘ ሰው ምን ይጐድልበታል </button></a></li> 
+<li class="animals"><a href="mz/56.html"><button>﻿ማርያም ድንግል</button></a></li> 
+<li class="animals"><a href="mz/57.html"><button>﻿የጻድቅ ሰው ጸሎት</button></a></li> 
+<li class="animals"><a href="mz/58.html"><button>﻿ሰላም ለኪ</button></a></li> 
+<li class="animals"><a href="mz/59.html"><button>﻿ሥላሴ ዘከሃ</button></a></li> 
+<li class="animals"><a href="mz/60.html"><button>﻿ፀጋን የተመላሽ ሆይ</button></a></li> 
+<li class="animals"><a href="mz/61.html"><button>﻿ሰአሊ ለነ ቅድስት</button></a></li> 
+<li class="animals"><a href="mz/62.html"><button>﻿ጌታ እኮ ነው</button></a></li> 
+<li class="animals"><a href="mz/63.html"><button>﻿ስምሽን ጠርቼ</button></a></li> 
+<li class="animals"><a href="mz/64.html"><button>﻿ልመናዬን ስማኝ</button></a></li> 
+<li class="animals"><a href="mz/65.html"><button>﻿የፍቅር እናት የሰላም</button></a></li> 
+<li class="animals"><a href="mz/66.html"><button>﻿ኪዳነ ምህረት እናቴ</button></a></li> 
+<li class="animals"><a href="mz/67.html"><button>﻿ተስፋችን ነህ አንተ</button></a></li> 
+<li class="animals"><a href="mz/69.html"><button>﻿እዩና እመኑ ሰዎች</button></a></li> 
+<li class="animals"><a href="mz/70.html"><button>﻿እመአምላክ ሙሽራ ነሽ</button></a></li> 
+<li class="animals"><a href="mz/71.html"><button>﻿ንኢ ንኢ</button></a></li> 
+<li class="animals"><a href="mz/72.html"><button>﻿ገሊላ ግቢ</button></a></li> 
+<li class="animals"><a href="mz/73.html"><button>﻿እቴ ሙሽራዬ</button></a></li> 
+<li class="animals"><a href="mz/74.html"><button>ለምኚ ድንግል</button></a></li> 
+<li class="animals"><a href="mz/75.html"><button>﻿ናና የምስጋና ጌታ</button></a></li> 
+<li class="animals"><a href="mz/76.html"><button>﻿ኦ ሥሉስ ቅዱስ ተመስገን</button></a></li> 
+<li class="animals"><a href="mz/77.html"><button>አኬልዳማ</button></a></li> 
+<li class="animals"><a href="mz/78.html"><button>﻿ኢይራየኒ ዓይነ ሞት</button></a></li> 
+<li class="animals"><a href="mz/79.html"><button>﻿ድንግል እናቴ ነይ</button></a></li> 
+<li class="animals"><a href="mz/80.html"><button>﻿ኪዳነ ምህረት</button></a></li> 
+<li class="animals"><a href="mz/82.html"><button>መርቆርዮስ</button></a></li> 
+<li class="animals"><a href="mz/83.html"><button>﻿﻿ዓለምን ለማዳን የተሰቀለው</button></a></li> 
+<li class="animals"><a href="mz/84.html"><button>﻿ነይ ነይ</button></a></li> 
+<li class="animals"><a href="mz/85.html"><button>በሄድኩበት ሂጂ</button></a></li>
+<li class="animals"><a href="mz/86.html"><button>﻿በሐዘኔ ደራሽ ነሽ</button></a></li> 
+<li class="animals"><a href="mz/88.html"><button>﻿በጐ መዓዛ</button></a></li> 
+<li class="animals"><a href="mz/89.html"><button>﻿ድንግል በድንግልና </button></a></li> 
+<li class="animals"><a href="mz/90.html"><button>﻿ድንግል እመቤቴ የሕይወቴ እረዳት </button></a></li> 
+<li class="animals"><a href="mz/91.html"><button>﻿ውበት ነሽ</button></a></li> 
+<li class="animals"><a href="mz/93.html"><button>﻿ኃይልን በሚሰጠኝ</button></a></li> 
+<li class="animals"><a href="mz/94.html"><button>ምስጋናዬን</button></a></li> 
+<li class="animals"><a href="mz/95.html"><button>﻿ፍጥረት ሁሉ</button></a></li>
+<li class="animals"><a href="mz/96.html"><button>﻿ደጉ መልአክ</button></a></li> 
+<li class="animals"><a href="mz/97.html"><button>ሆሳዕና</button></a></li> 
+<li class="animals"><a href="mz/98.html"><button>﻿ኮከብ ሲወጣ</button></a></li> 
+<li class="animals"><a href="mz/99.html"><button>﻿እመቤታችን ማርያም</button></a></li> 
+<li class="animals"><a href="mz/100.html"><button>﻿ኪዳነምህረት ለእኔ</button></a></li> 
+<li class="animals"><a href="mz/101.html"><button>﻿ቸርነትህ ነው</button></a></li> 
+<li class="animals"><a href="mz/102.html"><button>﻿የጽድቅ በር ነሽ</button></a></li> 
+<li class="animals"><a href="mz/103.html"><button>﻿አዛኝቷ እመቤታችን</button></a></li> 
+<li class="animals"><a href="mz/104.html"><button>﻿በርጠሚዎስ ነኝ</button></a></li> 
+<li class="animals"><a href="mz/105.html"><button>﻿የስሙ ትርጓሜ</button></a></li>
+<li class="animals"><a href="mz/106.html"><button>﻿እመቤታችን በቀኝ ቆማለች</button></a></li> 
+<li class="animals"><a href="mz/107.html"><button>﻿ድንግል ማርያም</button></a></li> 
+<li class="animals"><a href="mz/108.html"><button>﻿ጎሳ ልብየ</button></a></li> 
+<li class="animals"><a href="mz/109.html"><button>﻿ትህትናሽ ግሩም ነው</button></a></li> 
+<li class="animals"><a href="mz/110.html"><button>﻿እግዚአብሔርን ጠራሁት</button></a></li> 
+<li class="animals"><a href="mz/111.html"><button>﻿ገድሉ ታምራቱ</button></a></li> 
+<li class="animals"><a href="mz/112.html"><button>﻿የጽድቅ ሰነድ ነሽ</button></a></li> 
+<li class="animals"><a href="mz/113.html"><button>ከሊባኖስ</button></a></li> 
+<li class="animals"><a href="mz/115.html"><button>﻿﻿ወደአንቺ የመጣው</button></a></li>
+<li class="animals"><a href="mz/116.html"><button>﻿﻿﻿﻿እንደ እግዚአብሔር ያለ</button></a></li> 
+<li class="animals"><a href="mz/117.html"><button>ስምሽን ለልጅ ልጅ እነግራለሁ</button></a></li> 
+<li class="animals"><a href="mz/118.html"><button>﻿﻿የያሬድ ውብ ዜማ</button></a></li> 
+<li class="animals"><a href="mz/119.html"><button>﻿﻿የጴጥሮስን እንባ ስጠኝ እልሃለሁ</button></a></li> 
+<li class="animals"><a href="mz/120.html"><button>﻿﻿በሰማያት ታላቅ ክብር ያለሽ</button></a></li> 
+<li class="animals"><a href="mz/121.html"><button>﻿﻿አዛኝት ማርያም </button></a></li> 
+<li class="animals"><a href="mz/123.html"><button>ኪዳነምህረት</button></a></li> 
+<li class="animals"><a href="mz/124.html"><button>﻿﻿ከክፉ ቀን መውጫ</button></a></li> 
+<li class="animals"><a href="mz/125.html"><button>﻿﻿ወደ ማደሪያው ገብቼ ልስገድ</button></a></li> 
+<li class="animals"><a href="mz/126.html"><button>﻿﻿ለጥያቄ መልስ ስላጣሁ</button></a></li> 
+<li class="animals"><a href="mz/127.html"><button>﻿﻿ኪዳነምህረት እናቴ</button></a></li> 
+<li class="animals"><a href="mz/128.html"><button>﻿﻿የሥላሴን መንበር</button></a></li> 
+<li class="animals"><a href="mz/129.html"><button>﻿﻿የመላእክት አለቃ</button></a></li> 
+<li class="animals"><a href="mz/130.html"><button>﻿﻿በጌቴ ሴማኒ</button></a></li> 
+<li class="animals"><a href="mz/131.html"><button>﻿﻿የዕለት የዓመት</button></a></li> 
+<li class="animals"><a href="mz/132.html"><button>ጎሰቆለ</button></a></li> 
+<li class="animals"><a href="mz/133.html"><button>﻿﻿ድንግል ወላዲተ ቃል</button></a></li> 
+<li class="animals"><a href="mz/135.html"><button>﻿﻿በፍቅር ተስቦ ወረደ ለእኛ ሲል</button></a></li> 
+<li class="animals"><a href="mz/136.html"><button>﻿﻿የእኔን ሥራ</button></a></li> 
+<li class="animals"><a href="mz/137.html"><button>﻿﻿የዶኪማስ ጓዳ</button></a></li> 
+<li class="animals"><a href="mz/138.html"><button>﻿﻿ቋንቋዬ ነሽ</button></a></li> 
+<li class="animals"><a href="mz/139.html"><button>﻿﻿ሳይገባኝ አምላክ</button></a></li> 
+<li class="animals"><a href="mz/140.html"><button>﻿﻿በብርሃን ፀዳል</button></a></li> 
+<li class="animals"><a href="mz/142.html"><button>ከናዝራዊ ልጅሽ</button></a></li> 
+<li class="animals"><a href="mz/143.html"><button>﻿﻿እመኑ በእርሱ</button></a></li> 
+<li class="animals"><a href="mz/144.html"><button>﻿﻿ደጅ ጠናሁ ቆይቼ ኪዳነ ምህረትን</button></a></li> 
+<li class="animals"><a href="mz/145.html"><button>﻿﻿ተወልዳለች አና</button></a></li> 
+<li class="animals"><a href="mz/146.html"><button>﻿﻿ዘርዓ ብሩክ</button></a></li> 
+<li class="animals"><a href="mz/147.html"><button>﻿﻿እኔስ በምግባሬ</button></a></li> 
+<li class="animals"><a href="mz/148.html"><button>﻿﻿እያለፈ ነው ዘመኔ</button></a></li> 
+<li class="animals"><a href="mz/149.html"><button>አስታርቂኝ</button></a></li> 
+<li class="animals"><a href="mz/150.html"><button>﻿﻿ድንግል ፈጣሪዋን ወለደችው</button></a></li> 
+<li class="animals"><a href="mz/151.html"><button>﻿﻿ማሕደረ መለኮት የአምላክ እናት እመቤት</button></a></li> 
+<li class="animals"><a href="mz/152.html"><button>﻿﻿እማምላክ ልበልሽ</button></a></li> 
+<li class="animals"><a href="mz/153.html"><button>​﻿﻿በምን በምን እንመስላት ድንግል ማርያምን</button></a></li> 
+<li class="animals"><a href="mz/154.html"><button>﻿﻿በተአምረኪ ተፈስሃ ኩሉ ዓለም</button></a></li> 
+<li class="animals"><a href="mz/155.html"><button>﻿﻿የወደደኝ ጌታ</button></a></li> 
+<li class="animals"><a href="mz/156.html"><button>﻿﻿ክብረ ቅዱሳን</button></a></li> 
+<li class="animals"><a href="mz/157.html"><button>﻿﻿ደጅሽ ላይ ቆሜ</button></a></li> 
+<li class="animals"><a href="mz/158.html"><button>﻿﻿እልል በሉ በአንድነት ዘምሩ</button></a></li> 
+<li class="animals"><a href="mz/159.html"><button>﻿﻿ሐረገ ወይን</button></a></li> 
+<li class="animals"><a href="mz/160.html"><button>﻿﻿አባ ሳሙኤል</button></a></li> 
+<li class="animals"><a href="mz/162.html"><button>﻿﻿ምን ሰማህ ዮሐንስ በማኅፀን ሳለህ</button></a></li> 
+<li class="animals"><a href="mz/163.html"><button>﻿﻿አለማመኔን እርዳው</button></a></li> 
+<li class="animals"><a href="mz/164.html"><button>﻿﻿የደናግል መመኪያ</button></a></li> 
+<li class="animals"><a href="mz/165.html"><button>﻿﻿ተናገራ ኤፍሬም</button></a></li> 
+<li class="animals"><a href="mz/166.html"><button>﻿﻿ስድቤን አርቀሽ</button></a></li> 
+<li class="animals"><a href="mz/167.html"><button>በሐዘኔ</button></a></li> 
+<li class="animals"><a href="mz/168.html"><button>﻿﻿አድነኝ ክርስቶስ</button></a></li> 
+<li class="animals"><a href="mz/169.html"><button>ለማርያም</button></a></li> 
+<li class="animals"><a href="mz/170.html"><button>﻿﻿ዮም ፍስሃ ኮነ</button></a></li> 
+<li class="animals"><a href="mz/171.html"><button>እንደ ፈቃድህ</button></a></li> 
+<li class="animals"><a href="mz/172.html"><button>﻿﻿አክሊሌ ነሽ</button></a></li> 
+<li class="animals"><a href="mz/173.html"><button>ተወለደ</button></a></li> 
+<li class="animals"><a href="mz/174.html"><button>ከአጢአተኛው ድንኳን</button></a></li> 
+<li class="animals"><a href="mz/175.html"><button>﻿﻿ገብርኤል ኃያል</button></a></li> 
+<li class="animals"><a href="mz/176.html"><button>﻿﻿አስፈሪ ነበልባል</button></a></li> 
+<li class="animals"><a href="mz/177.html"><button>﻿﻿ድንግል ሆይ ወደኔ ትመጪ ዘንድ</button></a></li> 
+<li class="animals"><a href="mz/178.html"><button>﻿﻿ፍቅር ነው</button></a></li> 
+<li class="animals"><a href="mz/179.html"><button>﻿﻿በምን ደስ ላሰኝህ </button></a></li> 
+<li class="animals"><a href="mz/180.html"><button>﻿﻿እኔስ እዘምራለሁ</button></a></li> 
+<li class="animals"><a href="mz/181.html"><button>﻿﻿እግዚአብሔርን አመስግኑት</button></a></li> 
+<li class="animals"><a href="mz/182.html"><button>﻿﻿ዝናውን ሰምቼ</button></a></li> 
+<li class="animals"><a href="mz/183.html"><button>﻿﻿የልቤን ሁሉ</button></a></li> 
+<li class="animals"><a href="mz/184.html"><button>﻿﻿ገብርኤል በሰማይ </button></a></li> 
+<li class="animals"><a href="mz/185.html"><button>﻿﻿ማርያም አርጋለች</button></a></li>
+<li class="animals"><a href="mz/186.html"><button>﻿﻿ባክኛለሁና በስጋ ፈተና</button></a></li> 
+<li class="animals"><a href="mz/187.html"><button>​​﻿﻿ለነፍሴ ነፍሷ ነሽ</button></a></li> 
+<li class="animals"><a href="mz/188.html"><button>﻿﻿ናና ሚካኤል ናና</button></a></li> 
+<li class="animals"><a href="mz/189.html"><button>﻿﻿ነይ ነይ የሁሉ እናት</button></a></li> 
+<li class="animals"><a href="mz/190.html"><button>﻿﻿ዮም ፍስሃ ኮነ</button></a></li> 
+<li class="animals"><a href="mz/191.html"><button>﻿﻿በማህፀን ቅኔ</button></a></li> 
+<li class="animals"><a href="mz/192.html"><button>﻿﻿አምላክ ሰው ሆነ</button></a></li> 
+<li class="animals"><a href="mz/193.html"><button>​ምስጋናው ይቀጥል</button></a></li> 
+<li class="animals"><a href="mz/194.html"><button>﻿﻿ንሴብሆ ለሥላሴ</button></a></li> 
+<li class="animals"><a href="mz/195.html"><button>﻿﻿ኃይሌ ብርታቴ</button></a></li> 
+<li class="animals"><a href="mz/196.html"><button>﻿﻿ምዕራፈ ቅዱሳን</button></a></li> 
+<li class="animals"><a href="mz/197.html"><button>﻿﻿ሰዎች ፈረዱብኝ</button></a></li> 
+<li class="animals"><a href="mz/198.html"><button>﻿﻿አክሊለ ጽጌ ማርያም</button></a></li> 
+<li class="animals"><a href="mz/199.html"><button>﻿﻿ኃያል ኃያል</button></a></li> 
+<li class="animals"><a href="mz/200.html"><button>﻿﻿አንደበቴም ያውጣ</button></a></li> 
+<li class="animals"><a href="mz/201.html"><button>﻿﻿﻿ወደ ምስራቅ እዩ</button></a></li> 
+<li class="animals"><a href="mz/202.html"><button>﻿﻿ከወገኔ ጋራ</button></a></li> 
+<li class="animals"><a href="mz/203.html"><button>﻿﻿ሥላሴን አመስግኑ</button></a></li> 
+<li class="animals"><a href="mz/204.html"><button>﻿﻿ምሬሃለሁ በለኝ</button></a></li> 
+<li class="animals"><a href="mz/205.html"><button>﻿﻿ማርያም እንወድሻለን</button></a></li>
+<li class="animals"><a href="mz/206.html"><button>﻿﻿ትንሣኤሽን ያሳየን</button></a></li> 
+<li class="animals"><a href="mz/207.html"><button>﻿﻿በገና አንስተን</button></a></li> 
+<li class="animals"><a href="mz/208.html"><button>﻿﻿﻿በመከራ ጽና</button></a></li> 
+<li class="animals"><a href="mz/209.html"><button>﻿﻿ስምሽን ቢጠሩ</button></a></li> 
+<li class="animals"><a href="mz/210.html"><button>﻿﻿እናት አለኝ</button></a></li> 
+<li class="animals"><a href="mz/211.html"><button>﻿﻿ደጀሽ ላይ ቆሜ እጠራሻለሁ</button></a></li> 
+<li class="animals"><a href="mz/212.html"><button>﻿﻿﻿ጽላት ዘሙሴ እፀ ጳጦስ ዘሲና</button></a></li> 
+<li class="animals"><a href="mz/213.html"><button>﻿﻿የመላእክት እህት የጻድቃን እመቤት ነሽ</button></a></li> 
+<li class="animals"><a href="mz/214.html"><button>﻿﻿ኑ በእግዚአብሔር ደስ ይበለን</button></a></li> 
+<li class="animals"><a href="mz/215.html"><button>﻿﻿ያዳንከን አምላክ</button></a></li>
+<li class="animals"><a href="mz/216.html"><button>﻿﻿እመቤቴ ማርያም</button></a></li> 
+<li class="animals"><a href="mz/217.html"><button>ይኩነኒ</button></a></li> 
+<li class="animals"><a href="mz/218.html"><button>﻿﻿ኢትዮጵያ እጅሽን</button></a></li> 
+<li class="animals"><a href="mz/219.html"><button>ገብረሕይወት</button></a></li> 
+<li class="animals"><a href="mz/220.html"><button>﻿﻿አዝላ ወረደች</button></a></li> 
+<li class="animals"><a href="mz/222.html"><button>﻿﻿ያሬድ ካህኑ</button></a></li> 
+<li class="animals"><a href="mz/223.html"><button>﻿﻿ጽኑ ሰማዕት የእምነት አርበኛ</button></a></li> 
+<li class="animals"><a href="mz/224.html"><button>﻿﻿የድንግል ትህትና በዓለም ተደነቀ</button></a></li> 
+<li class="animals"><a href="mz/225.html"><button>﻿﻿ትምክህትሽ የታለሽ ሲሉኝ</button></a></li>
+<li class="animals"><a href="mz/226.html"><button>﻿﻿ከእጇ የጠገበ</button></a></li> 
+<li class="animals"><a href="mz/227.html"><button>﻿﻿አበረታኝ ፍቅርህ</button></a></li> 
+<li class="animals"><a href="mz/228.html"><button>﻿﻿ስለእኛ ብሎ </button></a></li> 
+<li class="animals"><a href="mz/229.html"><button>﻿﻿ድንቅ አድርጐልኛል የሠራዊት ጌታ</button></a></li> 
+<li class="animals"><a href="mz/230.html"><button>﻿﻿ጌታዬ ከሰጠኝ</button></a></li> 
+<li class="animals"><a href="mz/231.html"><button>﻿﻿አለፍኩኝ ድንግል</button></a></li> 
+<li class="animals"><a href="mz/232.html"><button>﻿﻿አድኚኝ እናቴ ከስጋ ፈተና</button></a></li> 
+<li class="animals"><a href="mz/233.html"><button>﻿﻿ኪዳነምህረት እናቴ</button></a></li> 
+<li class="animals"><a href="mz/234.html"><button>﻿﻿ውዳሴ ማርያም</button></a></li> 
+<li class="animals"><a href="mz/235.html"><button>አድርገህልኛልና</button></a></li>
+<li class="animals"><a href="mz/237.html"><button>﻿﻿ገበናዬን ሸፍኝልኝ</button></a></li> 
+<li class="animals"><a href="mz/238.html"><button>﻿﻿እመቤቴ ምስጋና አቀርባለሁ</button></a></li> 
+<li class="animals"><a href="mz/239.html"><button>﻿﻿መመኪያዬ ርስቴ</button></a></li> 
+<li class="animals"><a href="mz/240.html"><button>﻿﻿ርህሩህ መልአክ ነህና ለሁሉ የምትራራ</button></a></li> 
+<li class="animals"><a href="mz/241.html"><button>﻿﻿አዘክሪ ድንግል</button></a></li> 
+<li class="animals"><a href="mz/242.html"><button>﻿﻿ትምክህቴ መድኃኒቴ አንቺው ነሽ</button></a></li> 
+<li class="animals"><a href="mz/243.html"><button>﻿﻿ይበራል በክንፉ</button></a></li> 
+<li class="animals"><a href="mz/244.html"><button>﻿﻿ጽዮን ሆይ እያልኩ</button></a></li> 
+<li class="animals"><a href="mz1/20.html"><button>ኃያል ነህ አንተ ኃያል</button></a></li> 
+<li class="animals"><a href="mz1/22.html"><button>እልል በሉ በአንድነት ዘምሩ</button></a></li> 
+<li class="animals"><a href="mz1/23.html"><button>ኦ ፍጡነ ረድኤት</button></a></li> 
+<li class="animals"><a href="mz1/24.html"><button>የራማው ልዑል ገብርኤል </button></a></li> 
+<li class="animals"><a href="mz1/24.html"><button>ስለማይነገር ስጦታው </button></a></li> 
+<li class="animals"><a href="mz1/25.html"><button>በአምሳለ ርግብ</button></a></li> 
+<li class="animals"><a href="mz1/26.html"><button>በምን ደስ ላሰኝህ</button></a></li> 
+<li class="animals"><a href="mz1/27.html"><button>በምን ደስ ላሰኝህ</button></a></li> 
+<li class="animals"><a href="mz1/28.html"><button>በሐዘኔ በጭንቀቴ </button></a></li> 
+<li class="animals"><a href="mz1/29.html"><button>ኑ በእግዚአብሔር ደስ ይበለን</button></a></li> 
+<li class="animals"><a href="mz1/30.html"><button>ሰላም ሰላም ለኪ</button></a></li> 
+<li class="animals"><a href="mz1/58.html"><button>በምን በምን እንመስላት</button></a></li> 
+<li class="animals"><a href="mz1/60.html"><button>ከመላእክት ጋራ ሲገለጥ</button></a></li> 
+<li class="animals"><a href="mz1/61.html"><button>ይትባረክ እግዚአብሔር</button></a></li> 
+<li class="animals"><a href="mz1/62.html"><button>እምነት ተስፋ ፍቅር </button></a></li> 
+<li class="animals"><a href="mz1/63.html"><button>ደምረነ ምስለ ኵሎሙ</button></a></li> 
+<li class="animals"><a href="mz1/64.html"><button>ድንቅ ነው ልዩ ነው</button></a></li> 
+<li class="animals"><a href="mz1/65.html"><button>ኧኸ አንትሙሰ ኧኸ አኀዊነ</button></a></li> 
+<li class="animals"><a href="mz1/66.html"><button>መድኃኔ ዓለም እግዚአብሔር</button></a></li> 
+<li class="animals"><a href="mz1/67.html"><button>እጼውዐከ እግዚእየ ኢየሱስ ክርስቶስ</button></a></li> 
+<li class="animals"><a href="mz1/68.html"><button>﻿ቅዱስ እግዚአብሔር</button></a></li> 
+<li class="animals"><a href="mz1/69.html"><button>ኦ አምላክ ዘለዓለም</button></a></li> 
+<li class="animals"><a href="mz1/70.html"><button>መድኃኔዓለም ወሃቤ ሠላም</button></a></li> 
+<li class="animals"><a href="mz1/71.html"><button>ሰላም ወሰናይ</button></a></li> 
+<li class="animals"><a href="mz1/72.html"><button>ናቀድም አእቶቶ</button></a></li> 
+<li class="animals"><a href="mz1/73.html"><button>እግዚአብሔር ሆይ እወድሃለሁ </button></a></li> 
+<li class="animals"><a href="mz1/74.html"><button>ባርክ ለነ እግዚኦ</button></a></li> 
+<li class="animals"><a href="mz1/75.html"><button>ኢይምሰልክሙ ዘመጻእኩ </button></a></li> 
+<li class="animals"><a href="mz1/76.html"><button>በለኒ መሐርኩከ</button></a></li> 
+<li class="animals"><a href="mz1/77.html"><button>ሠርዓ ለነ ሰንበተ</button></a></li> 
+<li class="animals"><a href="mz1/78.html"><button>አምላካችን ሆይ</button></a></li> 
+<li class="animals"><a href="mz1/79.html"><button>አኮቴት ለአንተ ይገባል</button></a></li> 
+<li class="animals"><a href="mz1/80.html"><button>ተይ ተመከሪ ነፍሴ</button></a></li> 
+<li class="animals"><a href="mz1/81.html"><button>ከወገኔ ጋራ እዘምራለሁኝ</button></a></li> 
+<li class="animals"><a href="mz1/82.html"><button>ሥላሴን አመስግኑ</button></a></li> 
+<li class="animals"><a href="mz1/83.html"><button>አማን በአማን</button></a></li> 
+<li class="animals"><a href="mz1/84.html"><button>ሃሌ ሃሌ ሉያ ለሰሚዕ</button></a></li> 
+<li class="animals"><a href="mz1/85.html"><button>ኢየሱስ ክርስቶስ ይወደናል</button></a></li>
+<li class="animals"><a href="mz1/86.html"><button>ለመላው ዓለም መድኅን የሆነው</button></a></li> 
+<li class="animals"><a href="mz1/87.html"><button>እሳተ ጽርሑ ማየ ጠፈሩ </button></a></li> 
+<li class="animals"><a href="mz1/88.html"><button>አስተርአያ ገብርኤል</button></a></li> 
+<li class="animals"><a href="mz1/89.html"><button>ክንፎ ጸለላ </button></a></li> 
+<li class="animals"><a href="mz1/95.html"><button>አንቺ ቤተልሔም</button></a></li>
+<li class="animals"><a href="mz1/96.html"><button>ዙፋኑ ነበልባል</button></a></li> 
+<li class="animals"><a href="mz1/97.html"><button>አንፈርአፁ ሰብአ</button></a></li> 
+<li class="animals"><a href="mz1/98.html"><button>ዮሐንስኒ ሀሎ ያጠምቅ</button></a></li> 
+<li class="animals"><a href="mz1/99.html"><button>﻿በዮርዳኖስ ተጠምቀ</button></a></li> 
+<li class="animals"><a href="mz1/100.html"><button>ርዕዩከ ማያት</button></a></li> 
+<li class="animals"><a href="mz1/101.html"><button>﻿ልደቶ ጥምቀቶ</button></a></li> 
+<li class="animals"><a href="mz1/102.html"><button>ወቅድሳተ መንፈስ</button></a></li> 
+<li class="animals"><a href="mz1/103.html"><button>ተጠምቀ ሰማያዊ</button></a></li> 
+<li class="animals"><a href="mz1/104.html"><button>﻿በበህቀ ልህቀ</button></a></li> 
+<li class="animals"><a href="mz1/105.html"><button>ጥዒሞ አንከረ </button></a></li>
+<li class="animals"><a href="mz1/106.html"><button>﻿እንዘ ስውር እምኔነ</button></a></li> 
+<li class="animals"><a href="mz1/107.html"><button>አንከርዎ ለማይ </button></a></li> 
+<li class="animals"><a href="mz1/108.html"><button>ብሩክ ዘይመእ በስመ</button></a></li> 
+<li class="animals"><a href="mz1/109.html"><button>ድንግል የዚያን ጊዜ</button></a></li> 
+<li class="animals"><a href="mz1/110.html"><button>በዕፀ መስቀል ላይ</button></a></li> 
+<li class="animals"><a href="mz1/111.html"><button>ከሔሮድስ ወደ ጲላጦስ</button></a></li> 
+<li class="animals"><a href="mz1/112.html"><button>ለእኛ ብሎ ተንገላታ</button></a></li> 
+<li class="animals"><a href="mz1/113.html"><button>ሕሙም ስላዳነ </button></a></li> 
+<li class="animals"><a href="mz1/114.html"><button>ግሩም ነው ግሩም </button></a></li> 
+<li class="animals"><a href="mz1/115.html"><button>ምድረ ቀራንዮ ከጠዋት</button></a></li>
+<li class="animals"><a href="mz1/116.html"><button>ምንኛ ድንቅ ነው</button></a></li> 
+<li class="animals"><a href="mz1/117.html"><button>ሕማም የማታውቀው</button></a></li> 
+<li class="animals"><a href="mz1/118.html"><button>ዓለምን ለማዳን የተሰቀለው</button></a></li> 
+<li class="animals"><a href="mz1/119.html"><button>﻿﻿ለክብረ ቅዱሳን </button></a></li> 
+<li class="animals"><a href="mz1/120.html"><button>﻿﻿ቀደሳ ወአክበራ</button></a></li> 
+<li class="animals"><a href="mz1/121.html"><button>ክርስቶስ በኩር ቀደመ </button></a></li> 
+<li class="animals"><a href="mz1/122.html"><button>በይባቤ ወበቃለ ቀርን</button></a></li> 
+<li class="animals"><a href="mz1/123.html"><button>ሃሌ ሃሌ ሉያ</button></a></li> 
+<li class="animals"><a href="mz1/124.html"><button>በትፍሥሕት ወበሐሴት</button></a></li> 
+<li class="animals"><a href="mz1/125.html"><button>ይቤሎሙ ኢየሱስ ለአርዳኢሁ</button></a></li> 
+<li class="animals"><a href="mz1/126.html"><button>እንዲህ አለው ጴጥሮስ ኢየሱስን</button></a></li> 
+<li class="animals"><a href="mz1/127.html"><button>ደብር ርጉእ</button></a></li> 
+<li class="animals"><a href="mz1/128.html"><button>ወተወለጠ ራእዩ በቅድሜሆሙ</button></a></li> 
+<li class="animals"><a href="mz1/129.html"><button>በደብር በደብረ ታቦር</button></a></li> 
+<li class="animals"><a href="mz1/130.html"><button>﻿﻿በደብረ ዘይት</button></a></li> 
+<li class="animals"><a href="mz1/131.html"><button>በቶሎ ይመጣል ዋጋው</button></a></li> 
+<li class="animals"><a href="mz1/132.html"><button>ትበርህ እም ኮከበ ጽባህ </button></a></li> 
+<li class="animals"><a href="mz1/133.html"><button>አመ ትበርህ በደብረ</button></a></li> 
+<li class="animals"><a href="mz1/134.html"><button>ወልድኪ ይጼውአኪ</button></a></li> 
+<li class="animals"><a href="mz1/135.html"><button>﻿﻿እወርዳለሁ ቆላ</button></a></li> 
+<li class="animals"><a href="mz1/136.html"><button>ሕዝበ ኢትዮዽያ እለተወልዱ</button></a></li> 
+<li class="animals"><a href="mz1/137.html"><button>መሐርኒ ድንግል</button></a></li> 
+<li class="animals"><a href="mz1/138.html"><button>አክሊሎሙ ለሰማዕት</button></a></li> 
+<li class="animals"><a href="mz1/139.html"><button>እናታችን ጽዩን እንላለን</button></a></li> 
+<li class="animals"><a href="mz1/140.html"><button>አክሊለ ምክሕነ ወቀዳሚተ </button></a></li> 
+<li class="animals"><a href="mz1/141.html"><button>አንቲ ውእቱ ንጽሕት  </button></a></li> 
+<li class="animals"><a href="mz1/142.html"><button>ኦ ድንግል ደስ ይበልሽ</button></a></li> 
+<li class="animals"><a href="mz1/143.html"><button>ምን ይሆን ውለታሽ </button></a></li> 
+<li class="animals"><a href="mz1/144.html"><button>﻿﻿መላእክት በሰማያት</button></a></li> 
+<li class="animals"><a href="mz1/145.html"><button>ሐናና ኢያቄም በስለት ያገኙሽ</button></a></li> 
+<li class="animals"><a href="mz1/146.html"><button>ማርያምሰ ተሐቱ</button></a></li> 
+<li class="animals"><a href="mz1/147.html"><button>ሰአሊ ለነ ኀበ </button></a></li> 
+<li class="animals"><a href="mz1/148.html"><button>የኤልሳቤጥ ሐሴት </button></a></li> 
+<li class="animals"><a href="mz1/149.html"><button>ዮም ኮነ ፍስሐ</button></a></li> 
+<li class="animals"><a href="mz1/150.html"><button>አዘክሪ ድንግል</button></a></li> 
+<li class="animals"><a href="mz1/151.html"><button>ለምኚ ድንግል </button></a></li> 
+<li class="animals"><a href="mz1/152.html"><button>አድኝኝ እናቴ</button></a></li> 
+<li class="animals"><a href="mz1/153.html"><button>​﻿﻿የኖህ ቃል ኪዳኑ</button></a></li> 
+<li class="animals"><a href="mz1/154.html"><button>﻿﻿ክነፈ ርግብ በብሩር</button></a></li> 
+<li class="animals"><a href="mz1/155.html"><button>የዐቢ ክብራ ለማርያም</button></a></li> 
+<li class="animals"><a href="mz1/156.html"><button>ሰላም ለአንቺ </button></a></li> 
+<li class="animals"><a href="mz1/157.html"><button>ማርያም ጎየይኪ እምገጸ ሄሮድስ</button></a></li> 
+<li class="animals"><a href="mz1/158.html"><button>አንቲ ኩሎ ታሰግዲ ሎቱ</button></a></li> 
+<li class="animals"><a href="mz1/159.html"><button>ክበበ ጌራ ወርቅ</button></a></li> 
+<li class="animals"><a href="mz1/160.html"><button>ብኪ ይትፌስሑ ዘገነተ </button></a></li> 
+<li class="animals"><a href="mz1/161.html"><button>ማርያም ሥነ ተክለ ጽጌ</button></a></li> 
+<li class="animals"><a href="mz1/162.html"><button>ውድስት አንቲ በአፈ</button></a></li> 
+<li class="animals"><a href="mz1/163.html"><button>ድንግል በበረሃ</button></a></li> 
+<li class="animals"><a href="mz1/164.html"><button>ከማሃ ኀዘን ወተሰዶ</button></a></li> 
+<li class="animals"><a href="mz1/165.html"><button>ኢየሐፍር ቀዊመ</button></a></li> 
+<li class="animals"><a href="mz1/166.html"><button>እሴብሕ ጸጋኪ</button></a></li> 
+<li class="animals"><a href="mz1/167.html"><button>አልቦ እንበለ</button></a></li> 
+<li class="animals"><a href="mz1/168.html"><button>አብርሂ ኢየሩሳሌም</button></a></li>  
+<li class="animals"><a href="mz1/170.html"><button>ዮም ጸለሉ መላእክት</button></a></li> 
+<li class="animals"><a href="mz1/171.html"><button>ወተመይጠት ማርያም ሀገረ</button></a></li> 
+<li class="animals"><a href="mz1/172.html"><button>ብርሃነ ሕይወት</button></a></li> 
+<li class="animals"><a href="mz1/173.html"><button>መፅናኛ መመኪያ</button></a></li> 
+<li class="animals"><a href="mz1/174.html"><button>ለዕፀ መስቀል</button></a></li> 
+<li class="animals"><a href="mz1/175.html"><button>ርእዩ ዕበዮ </button></a></li> 
+<li class="animals"><a href="mz1/176.html"><button>ዮም መስቀል</button></a></li> 
+<li class="animals"><a href="mz1/177.html"><button>ወበእንተዝ አዘዙነ</button></a></li> 
+<li class="animals"><a href="mz1/178.html"><button>ትቤሎ እሌኒ</button></a></li> 
+<li class="animals"><a href="mz1/179.html"><button>ሀብሩ ቃለ ነቢያተ </button></a></li> 
+<li class="animals"><a href="mz1/180.html"><button>መስቀል አብርሃ </button></a></li> 
+<li class="animals"><a href="mz1/182.html"><button>ዝንቱ መስቀል</button></a></li> 
+<li class="animals"><a href="mz1/183.html"><button>ብከ ንወግዖሙ</button></a></li> 
+<li class="animals"><a href="mz1/184.html"><button>እምልማደ ሣህልከ</button></a></li> 
+<li class="animals"><a href="mz1/185.html"><button>ሞገሰ ክብሩ ሚካኤል</button></a></li>
+<li class="animals"><a href="mz1/186.html"><button>የአርባብ አለቃ ቅዱስ ገብርኤል</button></a></li> 
+<li class="animals"><a href="mz1/187.html"><button>ክብሮሙ ለመላእክት</button></a></li> 
+<li class="animals"><a href="mz1/188.html"><button>መዐዛሆሙ ለቅዱሳን</button></a></li> 
+<li class="animals"><a href="mz1/189.html"><button>ገባሬ መንክራት</button></a></li> 
+<li class="animals"><a href="mz1/190.html"><button>ልቡና የሚመስጥ</button></a></li> 
+<li class="animals"><a href="mz1/191.html"><button>አማን በአማን</button></a></li> 
+<li class="animals"><a href="mz1/192.html"><button>ሰአሉ ለነ ቅዱሳን</button></a></li> 
+<li class="animals"><a href="mz1/193.html"><button>የሕይወትን መዝገብ</button></a></li> 
+<li class="animals"><a href="mz1/194.html"><button>ይቤላ ሕፃን</button></a></li> 
+<li class="animals"><a href="mz1/195.html"><button>ያሬድ ሐዋርያ</button></a></li> 
+<li class="animals"><a href="mz1/196.html"><button>ትክበር ነፍስየ</button></a></li> 
+<li class="animals"><a href="mz1/197.html"><button>አባ አቡነ</button></a></li> 
+<li class="animals"><a href="mz1/198.html"><button>﻿﻿ከመ ጸበል</button></a></li> 
+<li class="animals"><a href="mz1/199.html"><button>ፍጡነ ረድኤት</button></a></li> 
+<li class="animals"><a href="mz1/200.html"><button>ይቤለኪ ያሬድ</button></a></li> 
+<li class="animals"><a href="mz1/201.html"><button>ሰባኬ ወንጌል</button></a></li> 
+<li class="animals"><a href="mz1/202.html"><button>ይትፌሥሑ ጻድቃን</button></a></li> 
+<li class="animals"><a href="mz1/203.html"><button>ዘረከቡኪ ጻድቃን</button></a></li> 
+<li class="animals"><a href="mz1/204.html"><button>ወዐቀቦሙ ከመ ብንተ </button></a></li> 
+<li class="animals"><a href="mz1/205.html"><button>ዮሐንስ ክቡር</button></a></li>
+<li class="animals"><a href="mz1/206.html"><button>ሐዋርያት አበው </button></a></li> 
+<li class="animals"><a href="mz1/207.html"><button>ሃሌ ሉያ ጊዮርጊስ ግሩም</button></a></li> 
+<li class="animals"><a href="mz1/209.html"><button>አክሊሎሙ አንተ ለሰማዕት</button></a></li> 
+<li class="animals"><a href="mz1/210.html"><button>ሰአል ለነ ጊዮርጊስ</button></a></li> 
+<li class="animals"><a href="mz1/211.html"><button>ከመ ጸበል ዘነፋስ</button></a></li> 
+<li class="animals"><a href="mz1/212.html"><button>በበግማድ ሥጋሁ መተሩ</button></a></li> 
+<li class="animals"><a href="mz1/213.html"><button>﻿﻿ዘረዉ ሥጋሁ</button></a></li> 
+<li class="animals"><a href="mz1/214.html"><button>﻿﻿መክብበ ሰማዕት ጊዮርጊስ</button></a></li> 
+<li class="animals"><a href="mz1/215.html"><button>በፍቅረ አምላኩ ጊዮርጊስ</button></a></li>
+<li class="animals"><a href="mz1/216.html"><button>ገድልከ ግሩም ነገርከ ጥዑም</button></a></li> 
+<li class="animals"><a href="mz1/217.html"><button>ነዋ ጊዮርጊስ አሐዱ</button></a></li> 
+<li class="animals"><a href="mz1/218.html"><button>እም ኢትዮጵያ እም</button></a></li> 
+<li class="animals"><a href="mz1/219.html"><button>መዓልተ ምስሌነ</button></a></li> 
+<li class="animals"><a href="mz1/220.html"><button>ገሐደ ቀዊሞ በውስተ</button></a></li> 
+<li class="animals"><a href="mz1/221.html"><button>ጸለየ ቅዱስ ጊዮርጊስ</button></a></li> 
+<li class="animals"><a href="mz1/222.html"><button>መጽአት ወለታ ለሔሮድያዳ </button></a></li> 
+<li class="animals"><a href="mz1/223.html"><button>ዘእምደብረ ደናግል</button></a></li> 
+<li class="animals"><a href="mz1/224.html"><button>ዛ አንቀጽ እንተ</button></a></li> 
+<li class="animals"><a href="mz1/225.html"><button>እም ገዳመ መንበሩ</button></a></li>
+<li class="animals"><a href="mz1/226.html"><button>ከመ ኖኅ በየውሀቱ</button></a></li> 
+<li class="animals"><a href="mz1/227.html"><button>በስመ አብ ወወልድ</button></a></li> 
+<li class="animals"><a href="mz1/228.html"><button>መጽሐፈ ዜናሁ ለቂርቆስ </button></a></li> 
+<li class="animals"><a href="mz1/229.html"><button>ዘንተ ሀለየ</button></a></li> 
+<li class="animals"><a href="mz1/230.html"><button>አሰርገዋ ለኢትዮጵያ</button></a></li> 
+<li class="animals"><a href="mz1/231.html"><button>አምላኮሙ ለክርስቲያን</button></a></li> 
+<li class="animals"><a href="mz1/232.html"><button>ቅዱሳን ጻድቃን</button></a></li> 
+<li class="animals"><a href="mz1/233.html"><button>በየገዳማቱ በየበረሃው</button></a></li> 
+<li class="animals"><a href="mz1/234.html"><button>ከሠተ አፉሁ</button></a></li> 
+<li class="animals"><a href="mz1/235.html"><button>ማርቆስ ሐዋርያ</button></a></li>
+<li class="animals"><a href="mz1/236.html"><button>ጸሎትክሙ ጽንዕት </button></a></li> 
+<li class="animals"><a href="mz1/237.html"><button>ደብሩሰ ለአባ</button></a></li> 
+<li class="animals"><a href="mz1/238.html"><button>እመ ድንግል ሐና</button></a></li> 
+<li class="animals"><a href="mz1/239.html"><button>ሐና ወኢያቄም</button></a></li> 
+<li class="animals"><a href="mz1/240.html"><button>ጊዜ እረፍታ </button></a></li> 
+<li class="animals"><a href="mz1/241.html"><button>አሀዊከ ሰማዕታት</button></a></li> 
+<li class="animals"><a href="mz1/242.html"><button>ቅድስተ ቅዱሳን ማርያም</button></a></li> 
+<li class="animals"><a href="mz1/243.html"><button>ነፍሴ ሆይ</button></a></li> 
+<li class="animals"><a href="mz1/244.html"><button>ሕይወቴ ሲመራ ጌታ በቃልህ</button></a></li> 
+<li class="animals"><a href="mz1/245.html"><button>የሰው ልጅ በኃይልህ</button></a></li> <br>
+<li class="animals"><a href="mz1/246.html"><button>በደልህን አምነህ ንስሐ ግባና</button></a></li> 
+<li class="animals"><a href="mz1/247.html"><button>ፈጣሪህን አስብ በወጣትነትህ </button></a></li> 
+<li class="animals"><a href="mz1/248.html"><button>አምላኬ እግዚአብሔር አይተወኝም</button></a></li> 
+<li class="animals"><a href="mz1/249.html"><button>እርዳኝ ዝም አትበል</button></a></li> 
+<li class="animals"><a href="mz1/250.html"><button>እንተ ተሐንፀት</button></a></li> 
+<li class="animals"><a href="mz1/251.html"><button>ሕንፄሃ አዳም</button></a></li> 
+<li class="animals"><a href="mz1/252.html"><button>ለዛቲ ቤት ሣረራ</button></a></li> 
+<li class="animals"><a href="mz1/253.html"><button>በደምህ ዋጅተህ ያፀናሃትን</button></a></li> 
+<li class="animals"><a href="mz1/254.html"><button>ተዋሕዶ ተዋሕዶ ሰማያዊት</button></a></li> 
+<li class="animals"><a href="mz1/255.html"><button>ሃሌ ሉያ ኢትስግቡ</button></a></li> <br>
+<li class="animals"><a href="mz1/256.html"><button>ንዑ ንሑር</button></a></li> 
+<li class="animals"><a href="mz1/257.html"><button>ጥንታዊቷ መጀመሪያይቷ</button></a></li> 
+<li class="animals"><a href="mz1/258.html"><button>ንዑ ንስግድ</button></a></li> 
+<li class="animals"><a href="mz1/259.html"><button>ሐዋርያት የሰበኩሽ</button></a></li> 
+<li class="animals"><a href="mz1/260.html"><button>ቤተ ክርስቲያን</button></a></li> 
+<li class="animals"><a href="mz1/261.html"><button>ሰላም ለኪ በሰጊድ</button></a></li> 
+<li class="animals"><a href="mz1/262.html"><button>ትሴብሃከ ኢትዮዽያ</button></a></li> 
+<li class="animals"><a href="mz1/263.html"><button>​አፍላገ ግዮን ወጤግሮስ</button></a></li> 
+<li class="animals"><a href="mz1/264.html"><button>ያርሁ ክረምተ በበዓመት</button></a></li> 
+<li class="animals"><a href="mz1/265.html"><button>ሃሌ ሉያ ዋይ ዜማ ዘሰማእኩ</button></a></li> <br>
+<li class="animals"><a href="mz1/266.html"><button>ሃሌ ሉያ ለአብ </button></a></li> 
+<li class="animals"><a href="mz1/267.html"><button>​​ባረከ ዓመተ</button></a></li> 
+<li class="animals"><a href="mz1/268.html"><button>ጾመ እግዚእነ</button></a></li> 
+<li class="animals"><a href="mz1/269.html"><button>በጾም ወበጸሎት</button></a></li> 
+<li class="animals"><a href="mz1/270.html"><button>ጾም የነፍስን</button></a></li> 
+<li class="animals"><a href="mz1/271.html"><button>ጾም ወጸሎት</button></a></li> 
+<li class="animals"><a href="mz1/272.html"><button>ለሰብአ ነነዌ</button></a></li> 
+<li class="animals"><a href="mz1/273.html"><button>ተነሡ እንዘምር</button></a></li> 
+<li class="animals"><a href="mz1/274.html"><button>የሕይወቴ መታመኛ</button></a></li> 
+<li class="animals"><a href="mz1/175.html"><button>ርእዩ ዕበዮ ለቅዱስ</button></a></li> <br>
+<li class="animals"><a href="mz1/276.html"><button>ኑ እናመስግን</button></a></li> 
+<li class="animals"><a href="mz1/277.html"><button>ቃልህ ሲነገር ልስማ</button></a></li> 
+<li class="animals"><a href="mz1/278.html"><button>እልል እልል ደስ ይበለን</button></a></li> 
+<li class="animals"><a href="mz1/279.html"><button>ንሴብሆ</button></a></li> 
+<li class="animals"><a href="mz1/280.html"><button>ንጉሥ ውእቱ</button></a></li> 
+<li class="animals"><a href="mz1/281.html"><button>ሠራዊተ</button></a></li> 
+<li class="animals"><a href="mz1/282.html"><button>እምኵሉ ይሄይስ</button></a></li> 
+<li class="animals"><a href="mz1/283.html"><button>ታቦተ ህጉ ለእግዚአብሄር</button></a></li> 
+<li class="animals"><a href="mz1/284.html"><button>አልቦ ዘከማየ</button></a></li> 
+<li class="animals"><a href="mz1/285.html"><button>ድውይ ነን</button></a></li> <br>
+<li class="animals"><a href="mz1/286.html"><button>ኵሉ ይሰግድ ለሥላሴ</button></a></li> 
+<li class="animals"><a href="mz1/287.html"><button>ሃሌ ሉያ2</button></a></li> 
+<li class="animals"><a href="mz1/288.html"><button>ሃሌ ሉያ</button></a></li> 
+<li class="animals"><a href="mz1/289.html"><button>ስብሀት ለአብ</button></a></li> 
+<li class="animals"><a href="mz1/290.html"><button>የቅዱሳን አበው</button></a></li> 
+<li class="animals"><a href="mz1/291.html"><button>እግዚአብሔር ለምድር</button></a></li> 
+<li class="animals"><a href="mz1/292.html"><button>ይትባረክ እግዚአብሔር</button></a></li> 
+<li class="animals"><a href="mz1/293.html"><button>ብርሃን የእውነት</button></a></li> 
+<li class="animals"><a href="mz1/294.html"><button>ዮም ፍስሓ ኮነ</button></a></li> 
+<li class="animals"><a href="mz1/295.html"><button>ምስጋና ጀመረ</button></a></li> 
+<li class="animals"><a href="mz1/296.html"><button>አንቀጸ ብርሃን</button></a></li> 
+<li class="animals"><a href="mz1/297.html"><button>ዐረገ በስብሐት</button></a></li> 
+<li class="animals"><a href="mz1/298.html"><button>ዐረገ ሰማያት</button></a></li> 
+<li class="animals"><a href="mz1/299.html"><button>አማን በአማን</button></a></li> 
+<li class="animals"><a href="mz1/300.html"><button>አምላክ ተነሥቶአል</button></a></li> 
+<li class="animals"><a href="mz1/301.html"><button>የህያዋን አምላክ</button></a></li>
+<li class="animals"><a href="mz1/302.html"><button>በአለም ጥላ ማለፍ</button></a></li> 
+<li class="animals"><a href="mz1/303.html"><button>ሆሳዕና እምርት</button></a></li> 
+<li class="animals"><a href="mz1/304.html"><button>ሆሳእና በአርያም</button></a></li> 
+<li class="animals"><a href="mz1/305.html"><button>ሰላምሽ ዛሬ ነው</button></a></li>
+<li class="animals"><a href="mz1/306.html"><button>ደቂቅኒ ይጸርሁ</button></a></li> 
+<li class="animals"><a href="mz1/307.html"><button>ሆሳዕና እምርት</button></a></li> 
+<li class="animals"><a href="mz1/308.html"><button>ሆሳእና በአርያም</button></a></li> 
+<li class="animals"><a href="mz1/309.html"><button>ይትቀደስ ስምከ</button></a></li>
+<li class="animals"><a href="mz1/310.html"><button>ርእዩ እበዩ</button></a></li> 
+<li class="animals"><a href="mz1/311.html"><button>ዝንቱ መስቀል</button></a></li>
+<li class="animals"><a href="mz1/312.html"><button>ርዕዩ እበዩ</button></a></li> 
+<li class="animals"><a href="mz1/313.html"><button>ዮም መስቀል</button></a></li> 
+<li class="animals"><a href="mz1/314.html"><button>ቡሄ በሉ</button></a></li> 
+<li class="animals"><a href="mz1/315.html"><button>ዓመት ዓውዳመት</button></a></li>
+<li class="animals"><a href="mz1/316.html"><button>እንዲሁ እንዳላችሁ</button></a></li> 
+<li class="animals"><a href="mz1/317.html"><button>የቅዱሳን መላዕክት የፃድቃን ሰማዕታት</button></a></li> 
+<li class="animals"><a href="mz1/318.html"><button>እሰይ ደስ ደስ ይበላችሁ</button></a></li> 
+<li class="animals"><a href="mz1/319.html"><button>አጫጫር መዝሙር ስብስብ</button></a></li>
+<li class="animals"><a href="mz1/320.html"><button>እልል እልል</button></a></li> 
+<li class="animals"><a href="mz1/321.html"><button>የዓለም በደል</button></a></li>
+<li class="animals"><a href="mz1/322.html"><button>ግነዩ ለእግዚአብሄር</button></a></li> 
+<li class="animals"><a href="mz1/323.html"><button>ጥምቀተ ባሕር</button></a></li> 
+<li class="animals"><a href="mz1/324.html"><button>ከድንግል ተወልዶ</button></a></li> 
+<li class="animals"><a href="mz1/325.html"><button>የሠላሙ መሪ</button></a></li>
+<li class="animals"><a href="mz1/326.html"><button>ኦ ክርስቶስ</button></a></li> 
+<li class="animals"><a href="mz1/327.html"><button>ዮሐንስኒ(የህዝብ)</button></a></li> 
+<li class="animals"><a href="mz1/328.html"><button>ዮሐንስኒ(የምርትነሽ)</button></a></li> 
+<li class="animals"><a href="mz1/329.html"><button>በቤተልሔም ተወልደ</button></a></li>
+<li class="animals"><a href="mz1/330.html"><button>በጎል ሰከበ</button></a></li> 
+<li class="animals"><a href="mz1/331.html"><button>አንፈራፁ</button></a></li>
+<li class="animals"><a href="mz1/332.html"><button>በኮከብ መፅኡ</button></a></li> 
+<li class="animals"><a href="mz1/333.html"><button>ዘነብያት ሰበክዎ</button></a></li> 
+<li class="animals"><a href="mz1/334.html"><button>አንፈራፁ ሰብዓ ሰገል</button></a></li> 
+<li class="animals"><a href="mz1/335.html"><button>ቤዛ ኩሉ ዓለም</button></a></li>
+<li class="animals"><a href="mz1/336.html"><button>ሀደረ</button></a></li> 
+<li class="animals"><a href="mz1/337.html"><button>በጎለ እንስሳ</button></a></li> 
+<li class="animals"><a href="mz1/338.html"><button>ተወለደ መድኃኔዓለም</button></a></li> 
+<li class="animals"><a href="mz1/339.html"><button>ቀዳሚሁ ቃል</button></a></li>
+<li class="animals"><a href="mz1/340.html"><button>እምሰማያት ወረደ</button></a></li> 
+<li class="animals"><a href="mz1/341.html"><button>ስብሐት ለእግዚአብሄር </button></a></li> 
+<li class="animals"><a href="mz1/342.html"><button>ለዘተወልደ</button></a></li> 
+<li class="animals"><a href="mz1/343.html"><button>ይትፌሥሓ </button></a></li> 
+<li class="animals"><a href="mz1/345.html"><button>አስተርዓየ</button></a></li> 
+<li class="animals"><a href="mz1/346.html"><button>ተወልደ ኢየሱስ</button></a></li> 
+<li class="animals"><a href="mz1/347.html"><button>እሳተ ጽርሑ </button></a></li> 
+<li class="animals"><a href="mz1/348.html"><button>እስመ እምዘርዓ</button></a></li> 
+<li class="animals"><a href="mz1/349.html"><button>ወወለደት</button></a></li> 
+<li class="animals"><a href="mz1/350.html"><button>ገብርኤል አወፈየኒ</button></a></li> 
+<li class="animals"><a href="mz1/351.html"><button>አንፈራጹ </button></a></li> 
+<li class="animals"><a href="mz1/352.html"><button>መጽአ ወልድ</button></a></li> 
+<li class="animals"><a href="mz1/353.html"><button>​﻿﻿ተቀደሰት ዓለም</button></a></li> 
+<li class="animals"><a href="mz1/354.html"><button>ዮም ፍስሐ ኮነ</button></a></li> 
+<li class="animals"><a href="mz1/355.html"><button>እፎ እፎ</button></a></li> 
+<li class="animals"><a href="mz1/356.html"><button>በጎል በጎል </button></a></li> 
+<li class="animals"><a href="mz1/357.html"><button>በወንጌሉ ያመናቹ</button></a></li> 
+<li class="animals"><a href="mz1/358.html"><button>ዮም ሰማያዊ</button></a></li> 
+<li class="animals"><a href="mz1/359.html"><button>ይኸው ተወለደ</button></a></li> 
+<li class="animals"><a href="mz1/360.html"><button>አይኖቼ ማዳኑን</button></a></li> 
+<li class="animals"><a href="mz1/361.html"><button>እልል እልል</button></a></li> 
+<li class="animals"><a href="mz1/362.html"><button>ሳር ቅጠሉ ሰርዶ</button></a></li> 
+<li class="animals"><a href="mz1/363.html"><button>አንቺ አንቺ ቤተልሔም</button></a></li> 
+<li class="animals"><a href="mz1/364.html"><button>ተወለደ ጌታ</button></a></li> 
+<li class="animals"><a href="mz1/365.html"><button>አምላክ ሰው ሆነ</button></a></li> 
+<li class="animals"><a href="mz1/366.html"><button>ስብሐት ለእግዚአብሄር</button></a></li> 
+<li class="animals"><a href="mz1/367.html"><button>በወንጌሉ ያመናችሁ(2)</button></a></li> 
+<li class="animals"><a href="mz1/368.html"><button>ሖረ ኢየሱስ 1</button></a></li>  
+<li class="animals"><a href="mz1/370.html"><button>ወረደ ወልድ 1</button></a></li> 
+<li class="animals"><a href="mz1/371.html"><button>ወረደ ወልድ 2</button></a></li> 
+<li class="animals"><a href="mz1/372.html"><button>እንዘ ህጻን</button></a></li> 
+<li class="animals"><a href="mz1/373.html"><button>በእደ ዮሐንስ</button></a></li> 
+<li class="animals"><a href="mz1/374.html"><button>ኀዲጎ ተስዓ 1</button></a></li> 
+<li class="animals"><a href="mz1/375.html"><button>ኧኸ ኀዲጎ ተስዓ</button></a></li> 
+<li class="animals"><a href="mz1/376.html"><button>ኀዲጎ ተስዓ 2</button></a></li> 
+<li class="animals"><a href="mz1/377.html"><button>ሃሌ ሃሌ ሉያ</button></a></li> 
+
+    
+    </ol> 
+    <script src="./animals.js"></script> 
+</body> 
+<script>
+    function search_animal() { 
+    let input = document.getElementById('searchbar').value 
+    input=input.toLowerCase(); 
+    let x = document.getElementsByClassName('animals','debre.html#animals'); 
+  for (i = 0; i < x.length; i++) {  
+        if (!x[i].innerHTML.toLowerCase().includes(input)) { 
+            x[i].style.display="none"; 
+           
+ }  else { 
+            x[i].style.display="list-item";                  
+        } } } 
+</script>
+ <script src="scripts/jquery.min.js" type="text/javascript"></script>
+	<script src="main.js" type="text/javascript"></script>
+	
+ 
+ <style>
+ search_animal{
+ 	border-radius: 15px;
+ 
+ }</style>
+ 
+ 
+ 
+ 
+</html> 
