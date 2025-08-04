@@ -3,64 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
+    <title>Song Lyrics System</title>
     <style>
-        
-        
-        h1 {
-            color: #0056b3;
-        }
-        p {
-            font-size: 1.2em;
-        }
-        #countdown {
-            font-size: 2em;
-            font-weight: bold;
-            color: #d9534f;
-        }
-        html { 
-  background: url(bc333d16e1b6ec1e5a3ecc5a1ce87639.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+        /* Basic Reset and Variables */
+        :root {
+            --primary-color: #f0f0f0;
+            --secondary-color: #c0c0c0;
+            --background-color: #1a1a1a;
+            --accent-color: #6a1b9a; /* A vibrant purple for accent */
+            --font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
         }
 
-    </style>
-</head>
-<body>
-<img src="1596838947448.png" width="80%" height="300px">
-<br>
-  <center><span id="countdown">10</span>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <script>
-        // Set the duration for the countdown in seconds
-        let countdownDuration = 10;
-        
-        // The URL to redirect to after the countdown
-        const redirectUrl = "https://haitxll19.github.io/EOTC/search.html"; 
-        
-        // Get the countdown element from the HTML
-        const countdownElement = document.getElementById("countdown");
+        body {
+            background-color: var(--background-color);
+            font-family: var(--font-family);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
 
-        // Function to update the countdown display
-        function updateCountdown() {
-            countdownElement.textContent = countdownDuration;
-            countdownDuration--;
+        .splash-container {
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+        }
 
-            // If the countdown is over, redirect
-            if (countdownDuration < 0) {
-                window.location.href = redirectUrl;
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
             }
         }
 
-        // Call the updateCountdown function every second
-        setInterval(updateCountdown, 1000);
-        
-        // Initial call to start the countdown immediately
-        updateCountdown();
-    </script>
+        .logo-container {
+            margin-bottom: 20px;
+        }
 
+        .logo-icon {
+            font-size: 5rem; /* Large and prominent */
+            color: var(--accent-color);
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .app-title {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .app-subtitle {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 40px;
+        }
+
+        /* Loading Spinner Animation */
+        .loading-spinner {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .spinner-dot {
+            width: 12px;
+            height: 12px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            animation: bounce 1.2s infinite ease-in-out;
+        }
+
+        .spinner-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .spinner-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes bounce {
+            0%, 80%, 100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            40% {
+                transform: translateY(-15px);
+                opacity: 0.7;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="splash-container">
+        <div class="logo-container">
+            <div class="logo-icon">💠</div> 
+        </div>
+        <h1 class="app-title">Lyrical Grace</h1>
+        <p class="app-subtitle">Modern Church Song Lyrics System</p>
+        <div class="loading-spinner">
+            <div class="spinner-dot"></div>
+            <div class="spinner-dot"></div>
+            <div class="spinner-dot"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("Splash screen loaded.");
+
+            // Simulate a loading process.
+            const splashDuration = 3000; // 3 seconds
+
+            setTimeout(() => {
+                console.log("Loading complete. Fading out splash screen.");
+                
+                const splashContainer = document.querySelector('.splash-container');
+                
+                // Add a fade-out class to start the transition
+                splashContainer.style.opacity = '0';
+                splashContainer.style.transition = 'opacity 1s ease-out';
+                
+                // After the fade-out is complete, hide the splash screen entirely
+                setTimeout(() => {
+                    splashContainer.style.display = 'none';
+                    // You can now display your main application content here.
+                    // For a real application, you would replace this with code to
+                    // load the next part of your UI or redirect the user.
+                    
+                    // Example:
+                    // document.body.innerHTML = `
+                    //     <div style="text-align: center; padding-top: 50vh; color: white;">
+                    //         <h1>Welcome to Lyrical Grace!</h1>
+                    //     </div>
+                    // `;
+                }, 1000); // Wait for the fade-out transition (1s) to finish
+                
+            }, splashDuration);
+        });
+    </script>
 </body>
-  </html>
+</html>
+
 
