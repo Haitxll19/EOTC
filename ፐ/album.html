@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Albums</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: sans-serif;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #albums-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        #albums-list li {
+            background-color: #222;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        #albums-list li:hover {
+            background-color: #333;
+        }
+        #albums-list a {
+            text-decoration: none;
+            color: #fff;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>ፐ-ዜማ: Albums</h2>
+        <ul id="albums-list"></ul>
+    </div>
+    <script src="albums.js"></script>
+</body>
+</html>

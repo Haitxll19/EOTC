@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Lyric</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: sans-serif;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #444;
+            background-color: #333;
+            color: #eee;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+        form textarea {
+            min-height: 200px;
+            resize: vertical;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+        }
+        .button-group button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        #submit-button {
+            background-color: #4CAF50;
+            color: #fff;
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+        #cancel-add-button {
+            background-color: #555;
+            color: #fff;
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Add a New Lyric</h2>
+        <form id="add-lyrics-form">
+            <input type="text" id="lyric-title" placeholder="Song Title" required>
+            <input type="text" id="lyric-artist" placeholder="Artist Name" required>
+            <input type="text" id="lyric-album" placeholder="Album Name" required>
+            <textarea id="lyric-text" placeholder="Paste the lyrics here..." required></textarea>
+            <div class="button-group">
+                <button type="submit" id="submit-button">Save Lyric</button>
+                <button type="button" id="cancel-add-button">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="add.js"></script>
+</body>
+</html>

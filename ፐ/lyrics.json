@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "title": "አንቺን",
+        "artist": "Mahmoud Ahmed",
+        "album": "Ere Mela Mela",
+        "lyrics": "አንቺን ብዬ... እናንተን ብዬ...",
+        "dateAdded": 1672531200000
+    },
+    {
+        "id": 2,
+        "title": "የኔ ነሽ",
+        "artist": "Teddy Afro",
+        "album": "Jah Yasteseryal",
+        "lyrics": "የኔ ነሽ አልኩሽ... አንቺም የኔ ነሽ አልሽኝ...",
+        "dateAdded": 1675209600000
+    },
+    {
+        "id": 3,
+        "title": "የሚያምሩት ዓይኖችሽ",
+        "artist": "Tewodros Tadesse",
+        "album": "Mulu Banchi",
+        "lyrics": "የሚያምሩት ዓይኖችሽ... ፀጉርሽ ልስልሱ...",
+        "dateAdded": 1677628800000
+    },
+    {
+        "id": 4,
+        "title": "ፍቅር",
+        "artist": "Gosaye Tesfaye",
+        "album": "Cheleka",
+        "lyrics": "ፍቅር ይዞኛል... ተነፋፈቅን...",
+        "dateAdded": 1679356800000
+    },
+    {
+        "id": 5,
+        "title": "ታጠቅ",
+        "artist": "Teddy Afro",
+        "album": "Jah Yasteseryal",
+        "lyrics": "ታጠቅ በል አባቴ... አንተ ነህ ጀግና...",
+        "dateAdded": 1679356800000
+    },
+    {
+        "id": 6,
+        "title": "ከዝንብ",
+        "artist": "Gosaye Tesfaye",
+        "album": "Cheleka",
+        "lyrics": "ከዝንብ ደግሞ አይምጣባችሁ...",
+        "dateAdded": 1679356800000
+    }
+]
