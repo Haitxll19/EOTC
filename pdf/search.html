@@ -114,11 +114,11 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            padding: 5px;
+            padding: 10px;
         }
         .pdf-viewer-content {
-            width: 95%;
-            height: 95%;
+            width: 97%;
+            height: 97%;
             max-width: 1200px;
             background-color: #fff;
             position: relative;
@@ -151,6 +151,31 @@
             display: block;
             margin-bottom: 5px;
         }
+        /* Loading Indicator Styles */
+        #loadingIndicator {
+            display: none; /* Initially hidden */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: auto;
+        }
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
 <body>
@@ -166,6 +191,10 @@
     <div id="pdfViewer">
         <button class="close-btn" onclick="closePdfViewer()">Close</button>
         <div class="pdf-viewer-content">
+            <div id="loadingIndicator">
+                <div class="spinner"></div>
+                <p>Loading PDF...</p>
+            </div>
             <div id="pdfPagesContainer"></div>
         </div>
     </div>
@@ -184,6 +213,7 @@
         const pdfList = document.getElementById('pdfList');
         const pdfViewer = document.getElementById('pdfViewer');
         const pdfPagesContainer = document.getElementById('pdfPagesContainer');
+        const loadingIndicator = document.getElementById('loadingIndicator');
 
         function renderPdfList(resources) {
             pdfList.innerHTML = '';
@@ -222,13 +252,13 @@
         function showPdf(url) {
             pdfViewer.style.display = 'flex';
             document.body.style.overflow = 'hidden';
+            pdfPagesContainer.innerHTML = ''; // Clear previous content
+            loadingIndicator.style.display = 'flex'; // Show loading indicator
 
-            // Use PDF.js to load and render the document
             const loadingTask = pdfjsLib.getDocument(url);
             loadingTask.promise.then(function(pdf) {
-                // Clear any previous pages
-                pdfPagesContainer.innerHTML = '';
-
+                loadingIndicator.style.display = 'none'; // Hide loading indicator on success
+                
                 // Loop through all pages and render them
                 for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
                     pdf.getPage(pageNum).then(function(page) {
@@ -248,6 +278,10 @@
                         pdfPagesContainer.appendChild(canvas);
                     });
                 }
+            }).catch(function(error) {
+                loadingIndicator.style.display = 'none'; // Hide loading indicator on error
+                pdfPagesContainer.innerHTML = '<p style="text-align:center; color:#fff;">Error loading PDF. Please check the file path.</p>';
+                console.error('Error loading PDF:', error);
             });
         }
 
