@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Church Resources</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
-      <script src="js.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,11 +14,11 @@
             color: #333;
         }
         .container {
-            max-width: 800px;
+            max-width: 100%;
             margin: auto;
             background-color: #fff;
             padding: 30px;
-            border-radius: 8px;
+            border-radius: 3px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         h1 {
@@ -34,6 +33,272 @@
             width: 100%;
             padding: 12px 15px;
             border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        #searchInput:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+        .pdf-list {
+            list-style-type: none;
+            counter-reset: my-awesome-counter;
+            padding: 0;
+            margin: 0;
+        }
+        .pdf-list li {
+            counter-increment: my-awesome-counter;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+            transition: background-color 0.3s ease;
+        }
+        .pdf-list li:last-child {
+            border-bottom: none;
+        }
+        .pdf-list li:hover {
+            background-color: #f9f9f9;
+        }
+        .pdf-list li:before {
+            content: counter(my-awesome-counter) ".";
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-right: 15px;
+        }
+        .pdf-details {
+            flex-grow: 1;
+        }
+        .pdf-details a {
+            font-weight: bold;
+            color: #34495e;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+        .pdf-details a:hover {
+            text-decoration: underline;
+        }
+        .pdf-category {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+        .view-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-left: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .view-btn:hover {
+            background-color: #2980b9;
+        }
+        /* PDF Viewer Styles */
+        #pdfViewer {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 5px;
+        }
+        .pdf-viewer-content {
+            width: 95%;
+            height: 95%;
+            max-width: 1200px;
+            background-color: #fff;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            overflow: auto;
+            padding: 5px;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .close-btn:hover {
+            background-color: #c0392b;
+        }
+        #pdfPagesContainer {
+            flex-grow: 1;
+            padding: 5px;
+        }
+        canvas {
+            height: auto;
+            width: 100%;
+            display: block;
+            margin-bottom: 20px;
+        }
+        /* Loading Indicator Styles */
+        #loadingIndicator {
+            display: none; /* Initially hidden */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: auto;
+        }
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Church Resources</h1>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search resources...">
+        </div>
+        <ol id="pdfList" class="pdf-list"></ol>
+    </div>
+
+    <div id="pdfViewer">
+        <button class="close-btn" onclick="closePdfViewer()">Close</button>
+        <div class="pdf-viewer-content">
+            <div id="loadingIndicator">
+                <div class="spinner"></div>
+                <p>Loading PDF...</p>
+            </div>
+            <div id="pdfPagesContainer"></div>
+        </div>
+    </div>
+
+    <script>
+        const pdfData = [
+            { id: 1, title: "መጽሐፈ ሄኖክ", category: "መፅሐፍ ቅዱሰ", url: "pdfs/መጽሐፈ ሄኖክ.pdf"},
+            { id: 2, title: "Youth Bible Study Guide", category: "Study Guides", url: "pdfs/youth-study-guide.pdf" },
+            { id: 3, title: "Church Newsletter (August)", category: "Announcements", url: "pdfs/newsletter-august.pdf" },
+            { id: 4, title: "New Member's Welcome Packet", category: "General", url: "pdfs/welcome-packet.pdf" },
+            { id: 5, title: "Mission Trip Handout", category: "Events", url: "pdfs/mission-trip-handout.pdf" },
+            { id: 6, title: "Sunday Sermon: The Power of Prayer", category: "Sermons", url: "pdfs/sermon-power-of-prayer.pdf" }
+        ];
+
+        const searchInput = document.getElementById('searchInput');
+        const pdfList = document.getElementById('pdfList');
+        const pdfViewer = document.getElementById('pdfViewer');
+        const pdfPagesContainer = document.getElementById('pdfPagesContainer');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+
+        function renderPdfList(resources) {
+            pdfList.innerHTML = '';
+            if (resources.length === 0) {
+                pdfList.innerHTML = '<p style="text-align:center; color:#7f8c8d;">No resources found.</p>';
+                return;
+            }
+            resources.forEach(pdf => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <div class="pdf-details">
+                        <a href="${pdf.url}" target="_blank" rel="noopener noreferrer">${pdf.title}</a>
+                        <div class="pdf-category">${pdf.category}</div>
+                    </div>
+                    <button class="view-btn" data-url="${pdf.url}">View</button>
+                `;
+                pdfList.appendChild(li);
+            });
+
+            document.querySelectorAll('.view-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const url = e.target.getAttribute('data-url');
+                    showPdf(url);
+                });
+            });
+        }
+
+        function handleSearch() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const filteredData = pdfData.filter(pdf => {
+                return pdf.title.toLowerCase().includes(searchTerm) || pdf.category.toLowerCase().includes(searchTerm);
+            });
+            renderPdfList(filteredData);
+        }
+
+        function showPdf(url) {
+            pdfViewer.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            pdfPagesContainer.innerHTML = ''; // Clear previous content
+            loadingIndicator.style.display = 'flex'; // Show loading indicator
+
+            const loadingTask = pdfjsLib.getDocument(url);
+            loadingTask.promise.then(function(pdf) {
+                loadingIndicator.style.display = 'none'; // Hide loading indicator on success
+                
+                // Loop through all pages and render them
+                for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+                    pdf.getPage(pageNum).then(function(page) {
+                        const scale = 1.5;
+                        const viewport = page.getViewport({ scale: scale });
+                        const canvas = document.createElement('canvas');
+                        const context = canvas.getContext('2d');
+                        canvas.height = viewport.height;
+                        canvas.width = viewport.width;
+
+                        const renderContext = {
+                            canvasContext: context,
+                            viewport: viewport
+                        };
+
+                        page.render(renderContext);
+                        pdfPagesContainer.appendChild(canvas);
+                    });
+                }
+            }).catch(function(error) {
+                loadingIndicator.style.display = 'none'; // Hide loading indicator on error
+                pdfPagesContainer.innerHTML = '<p style="text-align:center; color:#fff;">Error loading PDF. Please check the file path.</p>';
+                console.error('Error loading PDF:', error);
+            });
+        }
+
+        function closePdfViewer() {
+            pdfViewer.style.display = 'none';
+            pdfPagesContainer.innerHTML = '';
+            document.body.style.overflow = '';
+        }
+
+        renderPdfList(pdfData);
+        searchInput.addEventListener('input', handleSearch);
+    </script>
+
+</body>
+</html>
             border-radius: 5px;
             font-size: 1rem;
             box-sizing: border-box;
