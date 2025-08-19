@@ -1,252 +1,348 @@
 <!DOCTYPE html>
-<html>
- <meta name="viewport" content="width=device-width, initial-scale=1"> 
-  <link rel="stylesheet" href="materialize/css/materialize.min.css" />
-
- <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"> 
- <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css"> 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3779959851061919"
-     crossorigin="anonymous"></script>
- <link rel="stylesheet"  href="style.css"> 
-  <script type="text/javascript"> 
-  $(document).ready(function() 
-  { 
-   $('[data-toggle="popover"]').popover( 
-   { 
-    placement: 'top' 
-   }); 
-  }); 
- </script> 
-
+<html lang="en">
 <head>
- <meta charset="utf-8">
- <title>main mez</title>
- <meta name="viewport" content="width=device-width, initial-scale=1">
- <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
- <!-- Optional Bootstrap theme -->
- <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haile - Professional Portfolio</title>
+    <style>
+        /* CSS Variables for Easy Theming */
+        :root {
+            --primary-color: #f0f0f0;
+            --secondary-color: #c0c0c0;
+            --background-color: #1a1a1a;
+            --accent-color: #6a1b9a;
+            --font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            --border-radius: 10px;
+            --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
 
- <script>
-  
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-setTimeout(function () {
+        html {
+            scroll-behavior: smooth;
+        }
 
-   //Redirect with JavaScript
+        body {
+            font-family: var(--font-family);
+            background-color: var(--background-color);
+            color: var(--primary-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
 
-   window.location.href= '1.html';
+        /* Container for content */
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        
+        /* Section Styling */
+        .section {
+            padding: 60px 0;
+            animation: fadeIn 1.5s ease-in-out;
+        }
 
-}, 100000);
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            color: var(--accent-color);
+        }
+        
+        /* Underline effect for titles */
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
 
-    $(document).ready(function() 
-  { 
-   $('[data-toggle="popover"]').popover( 
-   { 
-    placement: 'top' 
-   }); 
-  }); 
- </script>
- 
- <style type="text/css">
-  footer{position:fixed;
-  height:200px;
-  margin-bottom:0px;
-  width:100%;
-  background-color:black;
-  color:white;
-  }
-.loader {
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #3498db; /* Blue */
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  animation: spin 2s linear infinite;
-  margin-top: 0px; 
-  }
+        /* Header / Hero Section */
+        .hero-section {
+            height: 30vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}   
-.bs-example {
-   margin: 150px 50px; 
-  } 
-  .popover-demo { 
-   margin-bottom: 20px; 
-  }  
-  body { 
-   position: relative; 
-   padding-top: 70px; 
-     } 
-  #cls1 { 
-   opacity: 0.4; 
-  }
+        .hero-name {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
 
-  .lds-roller {
-  display: inline-block;
-  position: relative;
-  width: 80px;
-  height: 80px;
-}
-.center-block { 
-   width: 50%; 
-   padding: 30px; }
-.lds-roller div {
-  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  transform-origin: 40px 40px;
-}
-.lds-roller div:after {
-  content: ;
-  display: block;
-  position: absolute;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: black;
-  margin: -4px 0 0 -4px;
-}
-.lds-roller div:nth-child(1) {
-  animation-delay: -0.036s;
-}
-.lds-roller div:nth-child(1):after {
-  top: 63px;
-  left: 63px;
-}
-.lds-roller div:nth-child(2) {
-  animation-delay: -0.072s;
-}
-.lds-roller div:nth-child(2):after {
-  top: 68px;
-  left: 56px;
-}
-.lds-roller div:nth-child(3) {
-  animation-delay: -0.108s;
-}
-.lds-roller div:nth-child(3):after {
-  top: 71px;
-  left: 48px;
-}
-.lds-roller div:nth-child(4) {
-  animation-delay: -0.144s;
-}
-.lds-roller div:nth-child(4):after {
-  top: 72px;
-  left: 40px;
-}
-.lds-roller div:nth-child(5) {
-  animation-delay: -0.18s;
-}
-.lds-roller div:nth-child(5):after {
-  top: 71px;
-  left: 32px;
-}
-.lds-roller div:nth-child(6) {
-  animation-delay: -0.216s;
-}
-.lds-roller div:nth-child(6):after {
-  top: 68px;
-  left: 24px;
-}
-.lds-roller div:nth-child(7) {
-  animation-delay: -0.252s;
-}
-.lds-roller div:nth-child(7):after {
-  top: 63px;
-  left: 17px;
-}
-.lds-roller div:nth-child(8) {
-  animation-delay: -0.288s;
-}
-.lds-roller div:nth-child(8):after {
-  top: 56px;
-  left: 12px;
-}
-@keyframes lds-roller {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
+        .hero-role {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            min-height: 2.5rem; /* Prevents layout shift for typewriter effect */
+        }
+        
+        /* Typewriter effect cursor */
+        .hero-role::after {
+            content: '|';
+            animation: blink-caret 1s step-end infinite;
+        }
 
-button {
-  background-color: whitegray; /* Green */
-  border: 20;
-border-radius: 20px;
-  color: black;
-  font-stle:bold;
-  padding: 15;
-  display: inline-block;
-  font-size: 16px;
-  cursor: pointer;
-}
-   body {
-   background-image: url("PicsArt_11-07-08.32.02.jpg");
-  background-size: 320px 500px;
-  background-repeat: repeat-y;
-     color:white;
-   }p{color:white;}
-  h5{
-    color:gray;}
- </style>
- <center>
- </head><body>
-<center>
-    <nav id="myNavbar" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <div class="container">
-    <img class="materialboxed" data-caption="HAILE TESHAGER" src="1596838947448.png" width="150px" height="100px" alt="First Slide">
-  </div>
-    </nav><hr>
-   <marquee behavior="left">
-  <h5>  👏👏   Thanks for using this app .   </h5>
- </marquee>
-    <header> <h5>
-   Developers</h5></header>
-  <div class="container">
- <hr> </div>
- <div class="container">
- <img class="materialboxed" data-caption="HAILE TESHAGER" src="tt.jpg" width="120px" height="160px">
- </center> <p>Haile Teshager<br>
-    student of d.u department 
-   of computer.s
-    <h5>➢for more info contact on</h5></center>
-    <img src="Screenshot_20200814-174553.png" width="60px" height="60px"/>
-    <a href="#+251900991275" type="number">0900991275</a><br>
-    <img src="facebook.png" width="60px" height="60px"/><a href="m.facebook.com/hait_xll">hait_xll</a></p>
-    <img src="Screenshot_20200814-174630.png" width="60px" height="60px"/>
-    <a href="haitxoxo19@gmail.com">haitxoxo19@gmail.com </a>
-    <hr> <center>
-    <img class="materialboxed" data-caption="WESSEN GIRMA" src="gg.jpg" width="150px" height="140px">
-       <p>   Wessen Girma   <br>  
-          student of d.u
-          department of computer.s
-      <h5>➘for more info contact on</h5></center>
-      <img src="Screenshot_20200814-174553.png" width="60px" height="60px"/>
-   <a href="#0985640196">0985640196</a><br>
-      <img src="facebook.png" width="60px" height="60px"/><a href="m.facebook.com/jamby_boy">jamby_boy</a>
-    </div> 
- <script src="bootstrap/js/jquery.js"></script>
- <script src="bootstrap/js/bootstrap.js"></script>
- <script type="text/javascript">
-  $(document).ready(function()
-  {
-   $("#myCarousel").carousel(
-   {
-    interval: 2000,
-    pause: false
-   });
-  });
- </script>
-<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
- 
- <link rel="stylesheet" href="materialize/css/materialize.min.css" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
- <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--primary-color); }
+        }
 
- 
- 
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            text-align: justify;
+        }
+        
+        .about-content img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--accent-color);
+            object-fit: cover;
+            box-shadow: var(--box-shadow);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .skill-item {
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-5px);
+            background-color: var(--accent-color);
+        }
+
+        .skill-item h4 {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+        }
+        
+        .contact-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            color: var(--secondary-color);
+            border-top: 1px solid #333;
+            margin-top: 40px;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-name {
+                font-size: 3rem;
+            }
+            .hero-role {
+                font-size: 1.2rem;
+            }
+            .about-content {
+                text-align: left;
+            }
+        }
+           .floating-button {
+            position: fixed;
+            width: var(--button-size);
+            height: var(--button-size);
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 1000;
+        }
+
+        .floating-button:hover {
+            background-color: #7d29b3;
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Specific button positions */
+        .back-button {
+            top: 20px;
+            left: 20px;
+        }
+        
+        .back-button::before {
+            content: '←';
+        }
+    </style>
+</head>
+<body>
+    <button class="floating-button back-button back-button" onclick="goBack()"></button>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <div class="hero-section">
+        <h1 class="hero-name"><img src="1596838947448.png" width="80% margin="2px" /></h1>
+           <p class="hero-role"></p>
+    </div>
+
+    <div class="container section">
+        <h2 class="section-title">Haile Teshager</h2>
+        <div class="about-content">
+            <img src="IMG_20250711_164108_574.jpg" alt="Haile">
+            <p>
+                I am a passionate IT teacher with a keen interest in web development. I have a strong foundation in programming and digital skill. My goal is to use my skills to create impactful and meaningful projects.
+            </p>
+        </div>
+    </div>
+    
+    <div class="container section">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <h4>Web programming</h4>
+                
+            </div>
+            <div class="skill-item">
+                <h4>Android studio</h4>
+                
+            </div>
+            <div class="skill-item">
+                <h4>Prompt engineering </h4>
+                
+            </div>
+            <div class="skill-item">
+                <h4>DB management </h4>
+                
+            </div>
+             
+        </div>
+    </div>
+    <h1 class="hero-name"><img src="1596838947448.png" width="80% margin="2px" /></h1>
+     
+    <div class="container section">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <strong>Email:</strong> <a href="mailto:haitxoxo19@gmail.com">haitxoxo19@gmail</a>
+            </div>
+            <div class="contact-item">
+                <strong>Phone:</strong> <a href="tel:+251900991275">0900991275</a>
+            </div>
+            <div class="contact-item">
+                <strong>Telegram:</strong> <a href="https://t.me/@haitxll" target="_blank">@haitxll</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 hait_xll. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const roles = ["[Haile Teshager]", "[web developer]", "[Do better!]"];
+            let roleIndex = 0;
+            let charIndex = 0;
+            const heroRoleElement = document.querySelector('.hero-role');
+            const typingSpeed = 100;
+            const erasingSpeed = 50;
+            const newRoleDelay = 2000;
+
+            function type() {
+                if (roleIndex < roles.length) {
+                    if (charIndex < roles[roleIndex].length) {
+                        heroRoleElement.textContent += roles[roleIndex].charAt(charIndex);
+                        charIndex++;
+                        setTimeout(type, typingSpeed);
+                    } else {
+                        setTimeout(erase, newRoleDelay);
+                    }
+                }
+            }
+
+            function erase() {
+                if (charIndex > 0) {
+                    heroRoleElement.textContent = roles[roleIndex].substring(0, charIndex - 1);
+                    charIndex--;
+                    setTimeout(erase, erasingSpeed);
+                } else {
+                    roleIndex++;
+                    if (roleIndex >= roles.length) {
+                        roleIndex = 0;
+                    }
+                    setTimeout(type, typingSpeed);
+                }
+            }
+            
+            // Start the typewriter effect
+            type();
+        });
+    </script>
 </body>
-
 </html>
