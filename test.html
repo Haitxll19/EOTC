@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Prep Mini App</title>
+    <style>
+        /* CSS styles for the Telegram Mini App */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--tg-theme-bg-color, #f0f2f5);
+            color: var(--tg-theme-text-color, #333);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0; /* No padding on the body to allow full-screen content */
+            box-sizing: border-box;
+            overflow: hidden; /* Prevent scroll on splash screen */
+        }
+
+        /* --- SPLASH SCREEN STYLES --- */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--tg-theme-bg-color, #1a73e8);
+            color: var(--tg-theme-text-color, #fff);
+            z-index: 100;
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+            text-align: center;
+        }
+        #splash-screen.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+        #splash-screen h1 {
+            font-size: 3em;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        /* --- MAIN APP STYLES --- */
+        #main-view {
+            width: 100%;
+            height: 100vh; /* Make the main view full-height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            visibility: hidden;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+        #main-view.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #subject-list-container {
+            background-color: var(--tg-theme-secondary-bg-color, #fff);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* --- TEST VIEW STYLES (NEW) --- */
+        #test-view {
+            width: 100%;
+            height: 100%; /* Take full height of main-view */
+            display: none; /* Initially hidden */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1.app-title {
+            text-align: center;
+            color: var(--tg-theme-text-color, #1a73e8);
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+
+        #subject-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #subject-list li {
+            background-color: var(--tg-theme-button-color, #e8f0fe);
+            color: var(--tg-theme-button-text-color, #1a73e8);
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: filter 0.3s ease, transform 0.2s ease;
+            text-align: center;
+        }
+
+        #subject-list li:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+        }
+
+        #subject-list li:active {
+            filter: brightness(0.9);
+        }
+
+        #google-form-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            #subject-list-container {
+                padding: 20px;
+            }
+            h1.app-title {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="splash-screen">
+        <h1>Wait Apps</h1>
+    </div>
+
+    <div id="main-view">
+        <div id="subject-list-container">
+            <h1 class="app-title">Select a Subject to Practice</h1>
+            <ul id="subject-list">
+                <li data-subject="IT">Information Technology</li>
+                <li data-subject="math">Mathematics</li>
+                <li data-subject="physics">Physics</li>
+                <li data-subject="chemistry">Chemistry</li>
+                <li data-subject="biology">Biology</li>
+                <li data-subject="history">History</li>
+            </ul>
+        </div>
+        <div id="test-view">
+            <iframe id="google-form-iframe" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+        </div>
+    </div>
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const splashScreen = document.getElementById('splash-screen');
+            const mainView = document.getElementById('main-view');
+            const subjectListContainer = document.getElementById('subject-list-container');
+            const testView = document.getElementById('test-view');
+            
+            // Telegram Web App API initialization
+            if (window.Telegram && window.Telegram.WebApp) {
+                Telegram.WebApp.ready();
+            }
+
+            // Show the main content after splash screen
+            setTimeout(() => {
+                splashScreen.classList.add('fade-out');
+                mainView.classList.add('show');
+            }, 2000);
+
+            const subjectList = document.getElementById('subject-list');
+            const googleFormIframe = document.getElementById('google-form-iframe');
+
+            // --- IMPORTANT: Replace with your actual Google Form URLs ---
+            const forms = {
+                'IT': 'https://docs.google.com/forms/d/e/1FAIpQLSd6nbMgQ1sWmcFOjb5q_R7Le6GwqIhnygLrXMgGb8QcDMp9Pw/viewscore?viewscore=AE0zAgBs7u1Y7deTMap_WfiSiwkp8JE0ebATbMR9rNvmdeYl7SJKZAqHhdo_zyejk4IusRk/viewform?embedded=true',
+                'math': 'https://docs.google.com/forms/d/e/YOUR_MATH_FORM_ID/viewform?embedded=true',
+                'physics': 'https://docs.google.com/forms/d/e/YOUR_PHYSICS_FORM_ID/viewform?embedded=true',
+                'chemistry': 'https://docs.google.com/forms/d/e/YOUR_CHEMISTRY_FORM_ID/viewform?embedded=true',
+                'biology': 'https://docs.google.com/forms/d/e/YOUR_BIOLOGY_FORM_ID/viewform?embedded=true',
+                'history': 'https://docs.google.com/forms/d/e/YOUR_HISTORY_FORM_ID/viewform?embedded=true'
+            };
+
+            subjectList.addEventListener('click', (event) => {
+                const selectedSubject = event.target.dataset.subject;
+
+                if (selectedSubject && forms[selectedSubject]) {
+                    const formUrl = forms[selectedSubject];
+                    
+                    // 1. Hide the subject list and show the test view
+                    subjectListContainer.style.display = 'none';
+                    testView.style.display = 'flex';
+                    
+                    // 2. Load the form into the iframe
+                    googleFormIframe.src = formUrl;
+
+                    // 3. Show Telegram's native back button for navigation
+                    if (window.Telegram && window.Telegram.WebApp) {
+                        Telegram.WebApp.BackButton.show();
+                        Telegram.WebApp.onEvent('backButtonClicked', () => {
+                            // Go back to the subject list
+                            testView.style.display = 'none';
+                            subjectListContainer.style.display = 'block';
+                            googleFormIframe.src = ''; // Clear iframe source
+                            Telegram.WebApp.BackButton.hide();
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+                       
